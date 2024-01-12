@@ -1,0 +1,148 @@
+<html>
+    <head>
+		<ul>
+      <li><a href="../../index.html">صفحه اصلی</a></li>
+      <li><a href="#">درباره ما</a></li>
+      <li><a href="#">خدمات</a></li>
+      <li><a href="#">تماس با ما</a></li>
+    </ul>
+		<div id="container">
+	<a href="mahdi.html" class="btn btn-hover">شروع بازی</a>
+			<h2>بعد از ثبت نام خود بر روی شروع بازی کلیک کنید</h2>
+			<div class="wrapper">
+  	<button onclick="myFunction()" class="najafi" >ثبت نام</button>
+				<p id="demo"></p>
+		
+      <link rel="shortcut icon" type="image/png" href="img/programmer.png"/>
+      <link rel="stylesheet" href="style.css">
+        <title>app wordle</title>
+        <link rel="shortcut icon" type="image/png" href="img/programmer.png"/>
+	
+        <style>
+.najafi{
+ width: 150px;
+    height: ۱۰۰px;
+    background-color: rgba(3,220,247,1.00);
+    border: 0px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 100;
+    font-size: 1.5rem;
+    font-family:vazir;
+	 border: 2px solid black;
+} 
+			
+		* {
+  box-sizing: inherit;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: .6s;
+          transition-duration: .6s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: MediumSeaGreen;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+#container {
+	width: 500px;
+	margin: 50px auto 0;
+	text-align: center;
+}	
+			
+			
+			.btn {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 45px;
+  margin: 0 auto 2em;
+  max-width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 100%;
+  text-align: center;
+}
+.btn:hover {
+  text-decoration: none;
+}
+			
+			.btn-hover {
+  border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, 0.5);
+  outline-offset: 0px;
+  text-shadow: none;
+  -webkit-transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btn-hover:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+}.btn-hover {
+background: #e3403a;
+  border: 1px solid #da251f;
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+}
+.btn-hover:hover,
+.btn-hover:focus,
+.btn-hover:active {
+  transform: translateY(-8px);
+}
+            </style>
+            </head>
+
+
+
+    <body>
+		
+	
+		
+       
+
+</body>
+       
+
+
+<script>
+  
+function myFunction() {
+  let person = prompt("لطفا شماره خود را بنویسید ", "");
+  if (person != null) {
+    document.getElementById("demo").innerHTML =
+    "" + person + "ممنون ثبت شد.";
+  }
+}
+</script>
+    </body>
+       
+		</html>

@@ -1,0 +1,267 @@
+@font-face {
+    font-family: 'vazir';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/vazir/Vazir.eot');
+    src: url('fonts/vazir/Vazir.eot?#iefix') format('embedded-opentype'),
+         url('fonts/vazir/Vazir.woff2') format('woff2'),
+         url('fonts/vazir/Vazir.woff') format('woff'),
+         url('fonts/vazir/Vazir.ttf') format('truetype');
+         }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.title{
+    width: 100%;
+    height: 60px;
+    border: 0px solid rgb(0, 0, 0);
+    background-color:bisque;
+    border-radius: 5px;
+    margin: 2px;
+    display: inline-block;
+    font-weight: 200;
+    font-size: 2.5rem;
+    font-family:vazir;
+    vertical-align: middle;
+    text-align: center;
+}
+
+   a:link, a:visited {
+              background-color: white;
+              color: black;
+              border: 2px solid green;
+              padding: 10px 20px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+            }
+            
+            a:hover, a:active {
+              background-color: green;
+              color: white;
+            }
+
+header {
+  background-color: black;
+  color: #fff;
+  padding: 20px;
+}
+
+
+.blue-square-container {
+	text-align: center;
+}
+.blue-square {
+	background-color: black;
+	widh:450px;
+	height: 30px;
+	display: inline-block;
+	text-align: center;
+}
+ }
+.blue-square-container {
+	text-align: center;
+}
+.blue-square1 {
+	background-color: white;
+	widh:400px;
+	height: 50px;
+	display: inline-block;
+	text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+section {
+  padding: 20px;
+}
+
+footer {
+  background-color: #12ceb5;
+  color: #fff;
+  paddin : 10px;
+  text-align: center;
+}
+a:link, a:visited {
+    background-color: white;
+    color: black;
+	 border: 2px solid green;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  a:hover, a:active {
+    background-color: red;
+  }
+button:link, button:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  button:hover, button:active {
+    background-color: red;
+  }
+navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar li {
+  float: right;
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  background-color: #111;
+}
+.carousel-wrapper{
+    height:400px;
+    position:relative;
+    width:800px;
+    margin:0 auto;
+    border :3px solid black; 
+  }
+  .carousel-item{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:25px 50px;
+    opacity:0;
+    transition: all 3s ease-in-out;
+  }
+  [id^="item"] {
+    display: none;
+  }
+
+.item-1 {
+    z-index: 2;
+    opacity: 1;
+  background-image:url('c:\Users\Public\Pictures\Sample Pictures\Chrysanthemum.jpg');
+  background-size:cover;
+  }
+.item-2{
+  background-image:url('c:\Users\Public\Pictures\Sample Pictures\Desert.jpg');
+   background-size:cover;
+}
+.item-3{
+  background-image:url('c:\Users\Public\Pictures\Sample Pictures\Hydrangeas.jpg');
+   background-size:cover;
+}
+
+*:target ~ .item-1 {
+    opacity: 0;
+  }
+
+#item-1:target ~ .item-1 {
+    opacity: 1;
+  }
+
+#item-2:target ~ .item-2, #item-3:target ~ .item-3 {
+    z-index: 3;
+    opacity: 1;
+  }
+
+.arrow{
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 12px;
+}
+.arrow-prev{
+  left:-30px;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%) rotate(135deg);
+}
+ 
+.arrow-next{
+    right:-30px;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%) rotate(-45deg);
+  }
+
+
+.soheil{
+  width: 400px;
+  height: 250px;
+  margin-left: 150px;
+  transition: all 3s;
+  border: 2px solid black;
+}
+.soheil:hover{
+  transform: scale(1.5,1.5);
+  border-radius: 50px;
+}
+.mahdi{
+ width: 150px;
+    height: 60px;
+    background-color: rgba(3,220,247,1.00);
+    border: 0px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 100;
+    font-size: 1.5rem;
+    font-family:vazir;
+	 border: 2px solid black;
+} 
+
+.najafi{
+ width: 150px;
+    height: 60px;
+    background-color: rgba(3,220,247,1.00);
+    border: 0px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 100;
+    font-size: 1.5rem;
+    font-family:vazir;
+	 border: 2px solid black;
+} 
+

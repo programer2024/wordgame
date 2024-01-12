@@ -1,0 +1,244 @@
+@charset "utf-8";
+/* CSS Document */
+.DIV{
+    border: 2px solid black;
+    border-radius: 100px;
+    width: 1300px;
+    margin-left: 14px;
+}
+.H1{
+    text-align: right;
+    margin-right: 33px;
+}
+.H2{
+    text-align: left;
+    margin-left: 15px;
+    margin-top: -64px;
+}
+
+
+.clear-fix{
+	clear: both;
+}
+
+a{
+	text-decoration: none;
+}
+
+#nav{
+	background-color: black;
+	border-bottom: 2px solid darkred;			
+}
+
+#nav ul{
+	list-style: none;
+}
+
+#nav li{
+	position: relative;
+}
+
+#nav > ul > li{
+	float: left;			
+}
+
+#nav > ul > li > a{
+	display: inline-block;
+	color: white;
+	padding: 0 10px;
+	line-height: 30px;
+}
+
+#nav > ul > li:hover > a{
+	background-color: darkred;
+	color: white;
+}
+.SSS{
+    width: 1350px;
+    height: 600px;
+    margin-left: 0px;
+    border: 3px solid red;
+    background-image: url(piciran.png);
+    margin-top: 60px;
+}
+.AAA{
+    font-size: 50px;
+    color: white;
+    text-align: right;
+    margin-right: 400px;
+    margin-top: 50px;
+}
+.DIVTODIV{
+    background-color: black;
+    border: 2px solid black;
+    width: 720px;
+    height: 40px;
+    border-radius: 50px 0px 50px 50px;
+    margin-top: -94px;
+    margin-left: 250px;
+
+
+}
+.ZZZ{
+    font-size: 110px;
+    color: white;
+    text-align: right;
+    margin-right: 640px;
+    margin-top: -100px;
+}
+.ZZZZ{
+    font-size: 50px;
+    color: white;
+    text-align: right;
+    margin-right: 850px;
+    margin-top: -150px;
+}
+.BUTM{
+    border: 3px solid black;
+    border-radius: 70px;
+    margin-left: 1060px;
+    width: 220px;
+    height: 50px;
+    transition: all 2s;
+    background-color: black;
+    padding-left: 20px;
+}
+.BUTM:hover{
+    transform: scale(1.5,1.5);
+    box-shadow: 20px 82px 8px black;
+}
+.PP{
+    font-size: 40px;
+    margin-top: -0px;
+    width: 200px;
+    text-align: center;
+    color: white;
+}
+.BUTMM{
+    border: 3px solid black;
+    border-radius: 70px;
+    margin-left: 750px;
+    width: 220px;
+    height: 50px;
+    transition: all 2s;
+    background-color: black;
+    padding-left: 20px;
+    margin-top: -55px;
+}
+.BUTMM:hover{
+    transform: scale(1.5,1.5);
+    box-shadow: 20px 82px 8px black;
+}
+.BUTMMM{
+    border: 3px solid black;
+    border-radius: 70px;
+    margin-left: 30px;
+    width: 220px;
+    height: 50px;
+    transition: all 2s;
+    background-color: black;
+    padding-left: 20px;
+    margin-top: -55px;
+}
+.BUTMMM:hover{
+    transform: scale(1.5,1.5);
+    box-shadow: 20px 82px 8px black;
+}
+.BUTMMMM{
+    border: 3px solid black;
+    border-radius: 70px;
+    margin-left: 370px;
+    width: 220px;
+    height: 50px;
+    transition: all 2s;
+    background-color: black;
+    padding-left: 20px;
+    margin-top: -55px;
+}
+.BUTMMMM:hover{
+    transform: scale(1.5,1.5);
+    box-shadow: 20px 82px 8px black;
+}
+.DIVTODIV2{
+    background-color: black;
+    border: 2px solid black;
+    width: 720px;
+    height: 40px;
+    border-radius: 0px 0px 70px 70px;
+    margin-top: 310px;
+    margin-left: 250px;
+    margin-bottom: 0px;
+}
+.EP{
+    font-size: 30px;
+    margin-top: -2px;
+    color: white;
+    margin-left: 110px;
+}
+.PP2{
+    font-size: 40px;
+    margin-top: -0px;
+    width: 200px;
+    text-align: center;
+    color: white;
+}
+.BUTMMMMM{
+        border: 3px solid black;
+        border-radius: 70px;
+        margin-left: 370px;
+        width: 220px;
+        height: 50px;
+        transition: all 2s;
+        background-color: black;
+        padding-left: 20px;
+        margin-top: 55px;
+}
+.BUTMMMMM:hover{
+        transform: scale(1.5,1.5);
+        box-shadow: 20px 82px 8px black;
+}
+.BUTMMMMMM{
+    border: 3px solid black;
+    border-radius: 70px;
+    margin-left: 40px;
+    width: 220px;
+    height: 50px;
+    transition: all 2s;
+    background-color: black;
+    padding-left: 20px;
+    margin-top: -55px;
+}
+.BUTMMMMMM:hover{
+    transform: scale(1.5,1.5);
+    box-shadow: 20px 82px 8px black;
+}
+.BUTMMMMMMM{
+    border: 3px solid black;
+    border-radius: 70px;
+    margin-left: 756px;
+    width: 220px;
+    height: 50px;
+    transition: all 2s;
+    background-color: black;
+    padding-left: 20px;
+    margin-top: -55px;
+}
+.BUTMMMMMMM:hover{
+    transform: scale(1.5,1.5);
+    box-shadow: 20px 82px 8px black;
+}
+.BUTMMMMMMMM{
+    border: 3px solid black;
+    border-radius: 70px;
+    margin-left: 1070px;
+    width: 220px;
+    height: 50px;
+    transition: all 2s;
+    background-color: black;
+    padding-left: 20px;
+    margin-top: -55px;
+}
+.BUTMMMMMMMM:hover{
+    transform: scale(1.5,1.5);
+    box-shadow: 20px 82px 8px black;
+}

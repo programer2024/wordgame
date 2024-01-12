@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'vazir';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/vazir/Vazir.eot');
+    src: url('fonts/vazir/Vazir.eot?#iefix') format('embedded-opentype'),
+         url('fonts/vazir/Vazir.woff2') format('woff2'),
+         url('fonts/vazir/Vazir.woff') format('woff'),
+         url('fonts/vazir/Vazir.ttf') format('truetype');
+         }
+/* استایل های سایت */
+header {
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #f2f2f2;
+    padding: 10px;
+    
+}
+.calculator {
+    width: 370px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #0fbd52;
+    border-radius: 5px;
+}
+
+#result {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: rgb(211, 21, 21);
+    border: none;
+    cursor: pointer;
+}
+
+navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar li {
+  float: right;
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  background-color: #111;
+}
+
+
+a:link, a:visited {
+    background-color: white;
+    color: black;
+	 border: 2px solid green;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  a:hover, a:active {
+    background-color: red;

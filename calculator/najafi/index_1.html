@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+    <title>ماشین حساب</title>
+	<link rel="shortcut icon" type="image/png" href="img/programmer.png"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<ul>
+      <li><a href="#">درباره ما</a></li>
+      <li><a href="#">خدمات</a></li>
+      <li><a href="#">تماس با ما</a></li>
+    </ul>
+	<a href="../../index.html" target="_blank">خروج به صفحه اصلی</a>
+    <div class="calculator">
+        <input type="text" id="result" readonly>
+        <div class="buttons">
+            <button onclick="clearResult()">C</button>
+            <button onclick="appendNumber(7)">7</button>
+            <button onclick="appendNumber(8)">8</button>
+            <button onclick="appendNumber(9)">9</button>
+            <button onclick="appendOperator('+')">+</button>
+            <button onclick="appendNumber(4)">4</button>
+            <button onclick="appendNumber(5)">5</button>
+            <button onclick="appendNumber(6)">6</button>
+            <button onclick="appendOperator('-')">-</button>
+            <button onclick="appendNumber(1)">1</button>
+            <button onclick="appendNumber(2)">2</button>
+            <button onclick="appendNumber(3)">3</button>
+            <button onclick="appendOperator('*')">*</button>
+            <button onclick="appendNumber(0)">0</button>
+            <button onclick="appendOperator('/')">/</button>
+            <button onclick="calculateResult()">=</button>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+<script>
+var result = document.getElementById("result");
+var expression = "";
+
+function appendNumber(number) {
+    expression += number;
+    result.value = expression;
+}
+
+function appendOperator(operator) {
+    expression += operator;
+    result.value = expression;
+}
+
+function calculateResult() {
+    try {
+        var calculatedResult = eval(expression);
+        result.value = calculatedResult;
+        expression = "";
+    } catch (error) {
+        result.value = "Error";
+    }
+}
+
+function clearResult() {
+    expression = "";
+    result.value = "";
+}
+
+</script>
+
