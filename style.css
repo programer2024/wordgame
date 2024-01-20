@@ -265,3 +265,13 @@ navbar {
 	 border: 2px solid black;
 } 
 
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+}
