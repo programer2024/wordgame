@@ -1,0 +1,113 @@
+<html>
+ <div class="bot5"></div>
+    <h1 class="bot3">ربات بامزه</h1>
+   <hr class="bot6", color="red" ;> 
+<div id="chat-container">
+  <div id="chat-log"></div>
+  <input type="text" id="user-input" placeholder="پیام خود را اینجا وارد کنید" />
+  <button id="send-btn">ارسال</button>
+	
+	<head>
+	<header>
+		<h1>سلام لطفا با سلام خوبی شروع کنید</h1>
+		<h1>ودر ادامه سوالاتی مانند اسمت چیه و جک بگو بپرسید چون غیر از این فعلا جواب نمیده برای جک های بیشتر هی بهش پیام بدید جک بگو</h1>
+		
+		</header>
+	
+	</head>
+	<body>
+	<style>
+		.bot5{
+    width: 800px;
+    height: 500px;
+    background: linear-gradient(to right,white,crimson,blue);
+    border: 10px solid none;
+    border-radius: 20px; 
+}
+		
+		.bot3{
+    color: linear-gradient(to right,white,crimson,blue);
+    margin: -450px 0px 0px 80px;
+}
+		.bot6{
+    width: 397px;
+    margin: 20px 200px 0px 41px;
+
+}
+		#chat-container {
+  width: 600px;
+  height: 350px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+}
+
+#chat-log {
+  margin-bottom: 10px;
+}
+
+#user-input {
+  width: 80%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#send-btn {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+		
+		
+		</style>
+	
+	</body>
+</div>
+</html>
+<script>
+
+const chatContainer = document.getElementById('chat-container');
+const chatLog = document.getElementById('chat-log');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+
+sendBtn.addEventListener('click', sendMessage);
+
+function sendMessage() {
+  const userMessage = userInput.value;
+  displayMessage(userMessage, 'user');
+  
+  if (userMessage.includes('سلام خوبی')) {
+    displayMessage('من خوب هستم. شما چطورید؟', 'bot');
+  } else if (userMessage.includes('جک بگو')) {
+    const joke = getJoke();
+    displayMessage(joke, 'bot');
+  } else if (userMessage.includes('اسمت چیه')) {
+    displayMessage('من دستیار شما هستم', 'bot');
+  } else {
+    displayMessage('متوجه نشدم. لطفا سوال یا درخواست خود را مجدداً بیان کنید.', 'bot');
+  }
+  
+  userInput.value = '';
+}
+
+function displayMessage(message, sender) {
+  const messageElem = document.createElement('div');
+  messageElem.classList.add('message');
+  messageElem.classList.add(sender);
+  messageElem.innerText = message;
+  chatLog.appendChild(messageElem);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+function getJoke() {
+  const jokes = ['یه روز یه خره قرص اگز میخوره میگه عر عر منم منم خر خر', 'یه ادم میخوره به جدول میشینه حل میکنه', 'خری؟'];
+  const randomIndex = Math.floor(Math.random() * jokes.length);
+  return jokes[randomIndex];
+}
+
+</script>
