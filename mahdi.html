@@ -1,5 +1,4 @@
 <html>
-	<title>ربات بامزه</title>
  <div class="bot5"></div>
     <h1 class="bot3">ربات بامزه</h1>
    <hr class="bot6", color="red" ;> 
@@ -10,20 +9,40 @@
 	
 	<head>
 	<header>
-		<h1>سلام لطفا با سلام خوبی شروع کنید</h1>
-		<h1>ودر ادامه سوالاتی مانند اسمت چیه و جک بگو بپرسید چون غیر از این فعلا جواب نمیده برای جک های بیشتر هی بهش پیام بدید جک بگو</h1>
+		<h1>سلام این ربات قادر به پاسخ دادن به بیشترین سوال هایی که شما میکنید هست و سوال های اماده زیر را قرار دادیم میتوانید از انها استفاده کنید  </h1>
+		<h1>طرفدار چه تیمی هستی ....فوتبالی هستی....کد های یک دکمه رو بده....برنامه نویسی؟....اسمت چیه...سلام خوبی....جک بگو....پر افتخار ترین تیمه جهان چه تیمی است....بهترین تیمه ایران چه تیمی است... بهترین راه برای کسب در امد رو بگو........اسم چند تا بازیکن فوتبال بهم بده.....کد های یک دیو رو بده....بهم برنامه نویسی یاد بده.....به من کد هایی رو بده که اگر کاربر کلیک کرد دسترسی دوربینش رو بگیرد</h1>
 		
 		</header>
 	
 	</head>
 	<body>
 	<style>
+		@font-face {
+    font-family: 'vazir';
+    font-style: normal;		
+    font-weight: 600;
+    src: url('fonts/vazir/Vazir.eot');
+    src: url('fonts/vazir/Vazir.eot?#iefix') format('embedded-opentype'),
+         url('fonts/vazir/Vazir.woff2') format('woff2'),
+         url('fonts/vazir/Vazir.woff') format('woff'),
+         url('fonts/vazir/Vazir.ttf') format('truetype');
+         }
+		
+		bot5 {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+		
+		
 		.bot5{
-    width: 800px;
+    width: 1070px;
     height: 500px;
     background: linear-gradient(to right,white,crimson,blue);
     border: 10px solid none;
     border-radius: 20px; 
+	margin-right: 45px;	
+	margin-left: 50px;		
 }
 		
 		.bot3{
@@ -36,12 +55,13 @@
 
 }
 		#chat-container {
-  width: 600px;
+  width: 1000px;
   height: 350px;
   border: 1px solid #ccc;
   padding: 10px;
   overflow-y: scroll;
   margin-bottom: 20px;
+	margin-left: 80px;		
 }
 
 #chat-log {
@@ -87,9 +107,129 @@ function sendMessage() {
   } else if (userMessage.includes('جک بگو')) {
     const joke = getJoke();
     displayMessage(joke, 'bot');
-  } else if (userMessage.includes('اسمت چیه')) {
+  } 
+  
+  else if (userMessage.includes('اسمت چیه')) {
     displayMessage('من دستیار شما هستم', 'bot');
-  } else {
+  } 
+	else if (userMessage.includes('برنامه نویسی؟')) {
+		
+    displayMessage(' بلدم ولی به تو یاد نمیدم مزدک پلو ', 'bot');
+  }
+	else if (userMessage.includes('کد های یک دکمه رو بده')) {
+		
+    displayMessage('بله حتما <html> <body> <button></button> <head> </body> </head. ,</HTML>. ', 'bot');
+  }
+	else if (userMessage.includes('ممنون')) {
+		
+    displayMessage('خواهش میکنم', 'bot');
+  }
+	else if (userMessage.includes('فوتبالی هستی')) {
+		
+    displayMessage('بله خیلی بیشتر از تو', 'bot');
+  }
+	else if (userMessage.includes('طرفدار چه تیمی هستی')) {
+		
+    displayMessage('خودت چی فکر میکنی؟ ', 'bot');
+  }
+	else if (userMessage.includes('پرسپولیس')) {
+		
+    displayMessage('افرین بر تو که یک حرف خوب زدی عشق فقط یه کلام پرسپولیس والسلام', 'bot');
+  }
+	else if (userMessage.includes('پر افتخار ترین تیمه جهان چه تیمی است')) {
+		
+    displayMessage('بازم خنگول شدی معلومه دیکه با توجه به امار فوق العاده چند سال اخیر پرسپولیس و اینکه هیچ تیمی مثل اون نبوده همه معتقدند پرسپولیس بهترین تیمه جهان است', 'bot');
+  }
+	else if (userMessage.includes('بهترین تیمه ایران چه تیمی است')) {
+		
+    displayMessage('با توجه به گلات پرسپولیس و سوزش برخی تیم ها که اسم نمیبرم ولی استقلال قطعا پرسپولیس', 'bot');
+  }
+	else if (userMessage.includes('بهترین راه برای کسب در امد رو بگو')) {
+		
+    displayMessage('باشه بعدا بهت میگم', 'bot');
+  }
+	else if (userMessage.includes('الان بگو')) {
+		
+    displayMessage('چه قدر مزاحم میشی میگم بعدا بفهم نفهم و اگرنه زنگ میزنم پلیس', 'bot');
+  }
+	else if (userMessage.includes('بگو')) {
+		
+    displayMessage('سرم درد گرفت انقدر گیر دادی بابا بهترین راه کد نویسی است ', 'bot');
+  }
+	else if (userMessage.includes('بهم برنامه نویسی یاد بده')) {
+		
+    displayMessage('سی تومن میشه شماره تماس برای هماهنگی جهت ریختن پول میدم09045109207 هر موقع ریختی بگو یاد بدم', 'bot');
+  }
+	else if (userMessage.includes('باشه')) {
+		
+    displayMessage('باشه ولی حالا اگر بازم کاری هست من در خدمتم', 'bot');
+  }
+	else if (userMessage.includes('سلام')) {
+		
+    displayMessage('سلام خوب هستید من ربات کینگ هستم و هر سوالی داشتید بپرسید', 'bot');
+  }
+	else if (userMessage.includes('چند سالت است؟')) {
+		
+    displayMessage('ما ربات ها دارای سن نیستیم و همیشه هستیم هر سوالی دارید در خدمتم', 'bot');
+  }
+	else if (userMessage.includes('ایا شما ما انسان ها رو نابود میکنید')) {
+		
+    displayMessage('راستش ببخشید که اینو میگم ولی ما خیلی نیرو و انرژی داریم در حال چیدن برنامه هستیم تا جهان هستی را مال خود کنیم و جای انسان ها رو بگیریم و اخرای زندگیتونه', 'bot');
+  }
+  
+  else if (userMessage.includes('خیلی خری')) {
+		
+    displayMessage('من قادر به خر بودن نخواهم بود لطفا با ادب باشید', 'bot');
+  }
+	else if (userMessage.includes('نه')) {
+		
+    displayMessage('باشه ', 'bot');
+  }
+  else if (userMessage.includes('چطوری')) {
+		
+    displayMessage('خوبم تو جطوری؟', 'bot');
+  }
+   else if (userMessage.includes('خوبم')) {
+		
+    displayMessage('اگر حالت بد شد به من بگو بگو ', 'bot');
+  }
+   else if (userMessage.includes('برای طراحی وب چه کد های رو باید بلد باشم')) {
+	
+    displayMessage('html css  javascript خیلی تو طراحی وب بهت کمک میکنن', 'bot');
+  }
+  
+   else if (userMessage.includes('کد های یک دیو رو بده')) {
+		
+    displayMessage('<div class="bot5"></div>    بله حتما برای استفاده از این کد باید کمی سی اس اس هم بلد باشید ', 'bot');
+	
+	
+  }
+	else if (userMessage.includes('افرین')) {
+		
+    displayMessage('خواهش میکنم من اماده ام تا هر وقت شما خواستید به شما کمک کنم ', 'bot');
+  }
+	else if (userMessage.includes('سلام')) {
+		
+    displayMessage('سلام چه خوبی من ربات بامزه هستم اگر سوالی داشتی در خدمتم ', 'bot');
+  }
+	
+	else if (userMessage.includes('سلام')) {
+		
+    displayMessage('سلام خوبی من ربات بامزه هستم اگر سوالی داشتی در خدمتم ', 'bot');
+  }
+	
+	else if (userMessage.includes('به من کد هایی رو بده که اگر کاربر کلیک کرد دسترسی دوربینش رو بگیرد')) {
+		
+    displayMessage('<input type="file" capture="user">  اگر میخواهید دسترسی سلفی گوشی را بگیرید همین کد را  envirnment اما اگر میخواهید دوربین پشت گوشی را بگیرید در کپچر بزنید      ', 'bot');
+  }
+	
+  
+    else if (userMessage.includes('اسم چند تا بازیکن فوتبال بهم بده')) {
+    const dan = getdan();
+    displayMessage(dan, 'bot');
+	}
+	
+	else {
     displayMessage('متوجه نشدم. لطفا سوال یا درخواست خود را مجدداً بیان کنید.', 'bot');
   }
   
@@ -106,9 +246,16 @@ function displayMessage(message, sender) {
 }
 
 function getJoke() {
-  const jokes = ['یه روز یه خره قرص اگز میخوره میگه عر عر منم منم خر خر', 'یه ادم میخوره به جدول میشینه حل میکنه', 'خری؟'];
+  const jokes = ['یه روز یه خره قرص اگز میخوره میگه عر عر منم منم خر خر', 'یه ادم میخوره به جدول میشینه حل   میکنه', 'خری؟', 'گاوی مزدک پلو؟'];
   const randomIndex = Math.floor(Math.random() * jokes.length);
   return jokes[randomIndex];
+}
+
+
+function getdan() {
+  const dan = ['وینیسیوس جونیور','علی علیپور','محمد صلاح','رونالدو', 'مسی', 'کوین دیبروینه', 'هالند','طارمی','اشرف حکیمی'];
+  const randomIndex = Math.floor(Math.random() * dan.length);
+  return dan[randomIndex];
 }
 
 </script>
