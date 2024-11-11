@@ -115,9 +115,20 @@ function remove() {
 let number = ["سابقه", "آسیاب", "دیروز" , "لوستر" ,"اسباب" ,"شطرنج"]
 let tutorial = Math.floor(Math.random() * number.length)
 
+let number1 = ["سابقه", "آسیاب", "دیروز" , "لوستر" ,"اسباب" ,"شطرنج"]
+let tutorial1 = Math.floor(Math.random() * number1.length)
+
+let number2 = ["سابقه", "آسیاب", "دیروز" , "لوستر" ,"اسباب" ,"شطرنج"]
+let tutorial2 = Math.floor(Math.random() * number2.length)
+	
 console.log(number[tutorial ])
 const finalWord = number[tutorial ]
 
+console.log(number1[tutorial1 ])
+const finalWord1 = number1[tutorial1 ]	
+
+console.log(number2[tutorial2 ])
+const finalWord2 = number2[tutorial2 ]
 function confirmation() {
     if (wordle.join("") === finalWord) {
         Swal.fire({
@@ -128,6 +139,24 @@ function confirmation() {
             timer: 1500
         })
 
+  else if (wordle.join("") === finalWord1) {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: " افرین",
+            showConfirmButton: false,
+            timer: 1500
+        })
+
+ else if (wordle.join("") === finalWord2) {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: " افرین",
+            showConfirmButton: false,
+            timer: 1500
+        })
+	    
     } else {
         Swal.fire({
             position: 'center',
