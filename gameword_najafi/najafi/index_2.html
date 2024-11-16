@@ -7,6 +7,22 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="scripts.js"></script>
+    <style>
+        .seediv {
+            display: flex;
+            flex-wrap: wrap; /* اجازه می‌دهد که باکس‌ها به ردیف بعدی بروند */
+            justify-content: center; /* مرکز چین کردن باکس‌ها */
+            margin-top: 20px; /* فاصله از بالای صفحه */
+        }
+        .seebox {
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgb(209, 209, 209);
+            border-radius: 5px;
+            margin: 2px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <ul>
@@ -15,13 +31,13 @@
         <li><a href="#">خدمات</a></li>
         <li><a href="#">تماس با ما</a></li>
     </ul>
-    <div id="history"></div>
+<div id="history"></div>
 
     <div class="title">
         کلمه بازی
     </div>
     <div class="seediv">
-        <!-- ایجاد 10 ردیف -->
+        <!-- ایجاد 10 ردیف با 5 باکس در هر ردیف -->
         <div class="seebox" id="box1"></div>
         <div class="seebox" id="box2"></div>
         <div class="seebox" id="box3"></div>
@@ -79,6 +95,7 @@
     </div>
 </body>
 </html>
+
 
 
 <script>
