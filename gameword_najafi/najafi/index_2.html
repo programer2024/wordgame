@@ -215,6 +215,75 @@ function confirmation() {
             history.push(`تلاش ${attempts + 1}: ${wordle.join("")} - ناموفق`);
             attempts++;
         }
+let fillboxnum = 0;
+let wordle = [];
+let attempts = 0; // تعداد تلاش‌ها
+const maxAttempts = 10; // حداکثر تعداد تلاش‌ها
+let history = []; // تاریخچه تلاش‌ها
+
+// لیست کلمات برای انتخاب تصادفی
+let wordsList = ["شطرنج", "آسیاب", "دیروز", "لوستر", "اسباب", "بازار", "کتاب", "گل", "پرنده", "دریا"];
+let finalWords = []; // آرایه‌ای برای کلمات نهایی
+
+// انتخاب کلمات تصادفی برای هر ردیف
+for (let i = 0; i < maxAttempts; i++) {
+    let randomIndex = Math.floor(Math.random() * wordsList.length);
+    finalWords.push(wordsList[randomIndex]);
+}
+
+function setbox(word) {
+    if (fillboxnum >= 0 && fillboxnum < maxAttempts) { // تغییر به < maxAttempts
+        fillboxnum = fillboxnum + 1;
+        // محاسبه‌ی شماره باکس بر اساس تعداد تلاش‌ها و باکس‌های موجود
+        let boxIndex = attempts * 5 + fillboxnum; // هر ردیف 5 باکس دارد
+        document.getElementById(`box${boxIndex}`).outerHTML =
+            `<div class="seebox-fill" id="box${boxIndex}">${word}</div>`;
+        wordle.push(word);
+    }
+
+    // بررسی اینکه آیا ردیف پر شده است
+    if (fillboxnum === 5) { // هر ردیف 5 باکس دارد
+        confirmation(); // تایید کلمه
+    }
+}
+
+function remove() {
+    if (fillboxnum >= 1 && fillboxnum <= 5) { // تغییر به <= 5
+        let boxIndex = attempts * 5 + fillboxnum; // محاسبه‌ی شماره باکس
+        document.getElementById(`box${boxIndex}`).outerHTML =
+            `<div class="seebox" id="box${boxIndex}"></div>`;
+        fillboxnum = fillboxnum - 1;
+        wordle.pop();
+    }
+}
+
+function confirmation() {
+    if (attempts < maxAttempts) {
+        if (wordle.join("") === finalWords[attempts]) { // مقایسه با کلمه نهایی
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: "افرین",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            history.push(`تلاش ${attempts + 1}: ${wordle.join("")} - موفق`);
+            attempts++; // افزایش تعداد تلاش‌ها
+            fillboxnum = 0; // بازنشانی شماره پر کردن خانه‌ها
+            wordle = []; // بازنشانی آرایه کلمات پر شده
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: "اشتباه است",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            history.push(`تلاش ${attempts + 1}: ${wordle.join("")} - ناموفق`);
+            attempts++;
+            fillboxnum = 0; // بازنشانی شماره پر کردن خانه‌ها
+            wordle = []; // بازنشانی آرایه کلمات پر شده
+        }
         
         // نمایش تاریخچه تلاش‌ها
         displayHistory();
@@ -225,7 +294,7 @@ function confirmation() {
                 position: 'center',
                 icon: 'info',
                 title: "تعداد تلاش‌ها به پایان رسید!",
-                text: `کلمه‌ی صحیح: ${finalWord}`,
+                text: `کلمات صحیح: ${finalWords.join(", ")}`,
                 showConfirmButton: true
             });
         }
@@ -251,19 +320,6 @@ function guide(word) {
     });
 }
 
-
-
-
-
-function guide(word) {
-    Swal.fire({
-        position: 'center',
-        icon: 'info',
-        title: "یک بازی فکری است ... فردا نیست ... موقعی که به یک خونه ی جدید میرویم چی را جابجا میکنیم ... فردا نیست ... یک چیز نورانی است",
-        
-        showConfirmButton: false,
-    })
-}
 
 
 
