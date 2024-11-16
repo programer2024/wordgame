@@ -7,9 +7,9 @@
          url('fonts/vazir/Vazir.woff2') format('woff2'),
          url('fonts/vazir/Vazir.woff') format('woff'),
          url('fonts/vazir/Vazir.ttf') format('truetype');
-         }
+}
 
-.seebox{
+.seebox {
     width: 60px;
     height: 60px;
     border: 2px solid rgb(209, 209, 209);
@@ -17,21 +17,22 @@
     margin: 2px;
     display: inline-block;
 }
-.title{
+
+.title {
     width: 100%;
     height: 60px;
-    border: 0px solid rgb(0, 0, 0);
-    background-color:bisque;
+    background-color: bisque;
     border-radius: 5px;
     margin: 2px;
     display: inline-block;
     font-weight: 200;
     font-size: 2.5rem;
-    font-family:vazir;
+    font-family: vazir;
     vertical-align: middle;
     text-align: center;
 }
-.seebox-fill{
+
+.seebox-fill {
     width: 60px;
     height: 60px;
     border: 3px solid rgb(0, 0, 0);
@@ -40,17 +41,19 @@
     display: inline-block;
     font-weight: 200;
     font-size: 2.5rem;
-    font-family:vazir;
+    font-family: vazir;
     vertical-align: middle;
     text-align: center;
 }
-.seediv{
+
+.seediv {
     text-align: center;
     margin-top: 10%;
     margin-bottom: 10%;
     direction: rtl;
 }
-.keybox{
+
+.keybox {
     width: 50px;
     height: 60px;
     background-color: rgba(184, 184, 184, 0.404);
@@ -62,15 +65,15 @@
     vertical-align: middle;
     font-weight: 100;
     font-size: 1.5rem;
-    font-family:vazir;
+    font-family: vazir;
 }
 
-.keyboard{
+.keyboard {
     text-align: center;
     direction: rtl;
 }
 
-.keyboxEnter{
+.keyboxEnter {
     width: 150px;
     height: 60px;
     background-color: rgba(5, 206, 112, 0.404);
@@ -82,9 +85,10 @@
     vertical-align: middle;
     font-weight: 100;
     font-size: 1.5rem;
-    font-family:vazir;
+    font-family: vazir;
 }
-.keyboxDelete{
+
+.keyboxDelete {
     width: 150px;
     height: 60px;
     background-color: rgba(190, 63, 63, 0.671);
@@ -96,9 +100,10 @@
     vertical-align: middle;
     font-weight: 100;
     font-size: 1.5rem;
-    font-family:vazir;
+    font-family: vazir;
 }
-.keyboxguide{
+
+.keyboxguide {
     width: 150px;
     height: 60px;
     background-color: rgba(63, 139, 190, 0.671);
@@ -110,53 +115,62 @@
     vertical-align: middle;
     font-weight: 100;
     font-size: 1.5rem;
-    font-family:vazir;
+    font-family: vazir;
 }
 
 body {
-    font-family:vazir;
+    font-family: vazir;
 }
 
-navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: black;
-  padding: 10px;
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    padding: 10px;
 }
 
 .navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .navbar li {
-  float: right;
+    float: right;
 }
 
 .navbar li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 .navbar li a:hover {
-  background-color: black;
+    background-color: black;
 }
 
 a:link, a:visited {
     background-color: white;
     color: white;
-	 border: 2px solid green;
+    border: 2px solid green;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-  }
-  a:hover, a:active {
+}
+
+a:hover, a:active {
     background-color: red;
+}
+
+/* اضافه کردن استایل برای تاریخچه تلاش‌ها */
+#history {
+    text-align: center;
+    margin-top: 20px;
+    font-family: vazir;
+    font-size: 1.2rem;
 }
