@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه کاربری</title>
+    <style>
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -64,12 +66,8 @@ button:hover {
     text-align: center;
 }
 
-
-</style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه کاربری</title>
-
+  
+    </style>
 </head>
 <body>
     <div class="container">
@@ -105,7 +103,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     // Check if username and password are correct
     if (localStorage.getItem(username) === password) {
         alert('ورود موفقیت‌آمیز بود!');
-        window.location.href = "mahdi.html"; // Redirect to the next page
+        window.location.href = "nextPage.html"; // Redirect to the next page
     } else {
         document.getElementById('login-errorMessage').innerText = 'نام کاربری یا رمز عبور اشتباه است';
     }
@@ -122,9 +120,15 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
     } else {
         localStorage.setItem(username, password);
         alert('ثبت نام موفقیت‌آمیز بود!');
-        // Optionally, redirect to login form after successful signup
+        // Redirect to login form after successful signup
+        document.getElementById('login-container').style.display = 'block';
+        document.getElementById('signup-container').style.display = 'none';
     }
 });
+
+// Initially show login form and hide signup form
+document.getElementById('login-container').style.display = 'block';
+document.getElementById('signup-container').style.display = 'block';
 
 
 
