@@ -1,332 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+}
+
+
+		
+	
+</style>
 <head>
-    <title>بازی کلمات</title>
-    <link rel="shortcut icon" type="image/png" href="img/programmer.png"/>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="sweetalert2.all.min.js"></script>
-    <script src="scripts.js"></script>
-    <style>
-        .seediv {
-            display: flex;
-            flex-wrap: wrap; /* اجازه می‌دهد که باکس‌ها به ردیف بعدی بروند */
-            justify-content: center; /* مرکز چین کردن باکس‌ها */
-            margin-top: 20px; /* فاصله از بالای صفحه */
-        }
-        .seebox {
-            width: 60px;
-            height: 60px;
-            border: 2px solid rgb(209, 209, 209);
-            border-radius: 5px;
-            margin: 2px;
-            display: inline-block;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه لاگین</title>
+    
 </head>
 <body>
-    <ul>
-        <li><a href="../../index.html">صفحه اصلی</a></li>
-        <li><a href="#">درباره ما</a></li>
-        <li><a href="#">خدمات</a></li>
-        <li><a href="#">تماس با ما</a></li>
-    </ul>
-<div id="history"></div>
+    <div class="login-container">
+        <form id="loginForm">
+            <h2>ورود</h2>
+            <label for="username">نام کاربری</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">رمز عبور</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">ورود</button>
+        </form>
+        <p id="errorMessage" class="error-message"></p>
+    </div>
+    <script>
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-    <div class="title">
-        کلمه بازی
-    </div>
-    <div class="seediv">
-        <!-- ایجاد 10 ردیف با 5 باکس در هر ردیف -->
-        <div class="seebox" id="box1"></div>
-        <div class="seebox" id="box2"></div>
-        <div class="seebox" id="box3"></div>
-        <div class="seebox" id="box4"></div>
-        <div class="seebox" id="box5"></div>
-        <div class="seebox" id="box6"></div>
-        <div class="seebox" id="box7"></div>
-        <div class="seebox" id="box8"></div>
-        <div class="seebox" id="box9"></div>
-        <div class="seebox" id="box10"></div>
-    </div>
-    <div class="keyboard">
-        <button class="keybox" onclick="setbox('پ')">پ</button>
-        <button class="keybox" onclick="setbox('چ')">چ</button>
-        <button class="keybox" onclick="setbox('ج')">ج</button>
-        <button class="keybox" onclick="setbox('ح')">ح</button>
-        <button class="keybox" onclick="setbox('خ')">خ</button>
-        <button class="keybox" onclick="setbox('ه')">ه</button>
-        <button class="keybox" onclick="setbox('ع')">ع</button>
-        <button class="keybox" onclick="setbox('غ')">غ</button>
-        <button class="keybox" onclick="setbox('ف')">ف</button>
-        <button class="keybox" onclick="setbox('ق')">ق</button>
-        <button class="keybox" onclick="setbox('ث')">ث</button>
-        <button class="keybox" onclick="setbox('ص')">ص</button>
-        <button class="keybox" onclick="setbox('ض')">ض</button>
-    </div>
-    <div class="keyboard">
-        <button class="keybox" onclick="setbox('گ')">گ</button>
-        <button class="keybox" onclick="setbox('ک')">ک</button>
-        <button class="keybox" onclick="setbox('م')">م</button>
-        <button class="keybox" onclick="setbox('ن')">ن</button>
-        <button class="keybox" onclick="setbox('ت')">ت</button>
-        <button class="keybox" onclick="setbox('ا')">ا</button>
-        <button class="keybox" onclick="setbox('ل')">ل</button>
-        <button class="keybox" onclick="setbox('ب')">ب</button>
-        <button class="keybox" onclick="setbox('ی')">ی</button>
-        <button class="keybox" onclick="setbox('س')">س</button>
-        <button class="keybox" onclick="setbox('ش')">ش</button>
-    </div>
-    <div class="keyboard">
-        <button class="keybox" onclick="setbox('و')">و</button>
-        <button class="keybox" onclick="setbox('ئ')">ئ</button>
-        <button class="keybox" onclick="setbox('د')">د</button>
-        <button class="keybox" onclick="setbox('ذ')">ذ</button>
-        <button class="keybox" onclick="setbox('ر')">ر</button>
-        <button class="keybox" onclick="setbox('ز')">ز</button>
-        <button class="keybox" onclick="setbox('ط')">ط</button>
-        <button class="keybox" onclick="setbox('ظ')">ظ</button>
-    </div>
-    <div class="keyboard">
-        <button class="keyboxDelete" id="Delete" onclick="remove()">حذف</button>
-        <button class="keyboxEnter" id="Enter" onclick="confirmation()">تایید</button>
-        <button class="keyboxguide" id="guide" onclick="guide()">راهنما</button>
-        <a href="index_2.html" target="_blank">مرحله بعد</a>
-    </div>
+    if (username === 'admin' && password === 'admin') {
+        alert('ورود موفقیت‌آمیز بود!');
+    } else {
+        document.getElementById('errorMessage').innerText = 'نام کاربری یا رمز عبور اشتباه است';
+    }
+});
+
+
+	    
+    </script>
 </body>
 </html>
-
-
-
-<script>
-let fillboxnum = 0;
-let wordle = [];
-
-function setbox(word) {
-    if (fillboxnum >= 0 && fillboxnum <= 14) {
-        fillboxnum = fillboxnum + 1;
-        document.getElementById(`box${fillboxnum}`).outerHTML =
-            `<div class="seebox-fill" id="box${fillboxnum}">${word}</div>`;
-        wordle.push(word);
-    }
-
-}
-
-function remove() {
-    if (fillboxnum >= 1 && fillboxnum <= 15) {
-        document.getElementById(`box${fillboxnum}`).outerHTML =
-            `<div class="seebox" id="box${fillboxnum}"></div>`;
-        fillboxnum = fillboxnum - 1;
-        wordle.pop();
-    }
-}
-
-let number = ["سابقه", "آسیاب", "دیروز" , "لوستر" ,"اسباب" ,"شطرنج"]
-let tutorial = Math.floor(Math.random() * number.length)
-
-let number1 = ["سابقه", "آسیاب", "دیروز" , "لوستر" ,"اسباب" ,"شطرنج"]
-let tutorial1 = Math.floor(Math.random() * number1.length)
-
-let number2 = ["سابقه", "آسیاب", "دیروز" , "لوستر" ,"اسباب" ,"شطرنج"]
-let tutorial2 = Math.floor(Math.random() * number2.length)
-	
-console.log(number[tutorial ])
-const finalWord = number[tutorial ]
-
-console.log(number1[tutorial1 ])
-const finalWord1 = number1[tutorial1 ]	
-
-console.log(number2[tutorial2 ])
-const finalWord2 = number2[tutorial2 ]
-function confirmation() {
-    if (wordle.join("") === finalWord) {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: " افرین",
-            showConfirmButton: false,
-            timer: 1500
-        })
-
-  else if (wordle.join("") === finalWord1) {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: " افرین",
-            showConfirmButton: false,
-            timer: 1500
-        })
-
- else if (wordle.join("") === finalWord2) {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: " افرین",
-            showConfirmButton: false,
-            timer: 1500
-        })
-let fillboxnum = 0;
-let wordle = [];
-let attempts = 0; // تعداد تلاش‌ها
-const maxAttempts = 10; // حداکثر تعداد تلاش‌ها
-let history = []; // تاریخچه تلاش‌ها
-
-function setbox(word) {
-    if (fillboxnum >= 0 && fillboxnum < 10) { // تغییر به < 10
-        fillboxnum = fillboxnum + 1;
-        document.getElementById(`box${fillboxnum}`).outerHTML =
-            `<div class="seebox-fill" id="box${fillboxnum}">${word}</div>`;
-        wordle.push(word);
-    }
-}
-
-function remove() {
-    if (fillboxnum >= 1 && fillboxnum <= 10) { // تغییر به <= 10
-        document.getElementById(`box${fillboxnum}`).outerHTML =
-            `<div class="seebox" id="box${fillboxnum}"></div>`;
-        fillboxnum = fillboxnum - 1;
-        wordle.pop();
-    }
-}
-
-let number = ["شطرنج", "آسیاب", "دیروز", "لوستر", "اسباب", "بازار"];
-let tutorial = Math.floor(Math.random() * number.length);
-const finalWord = number[tutorial];
-
-function confirmation() {
-    if (attempts < maxAttempts) {
-        if (wordle.join("") === finalWord) {
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: "افرین",
-                showConfirmButton: false,
-                timer: 1500
-            });
-            history.push(`تلاش ${attempts + 1}: ${wordle.join("")} - موفق`);
-        } else {
-            Swal.fire({
-                position: 'center',
-                icon: 'error',
-                title: "اشتباه است",
-                showConfirmButton: false,
-                timer: 1500
-            });
-            history.push(`تلاش ${attempts + 1}: ${wordle.join("")} - ناموفق`);
-            attempts++;
-        }
-let fillboxnum = 0;
-let wordle = [];
-let attempts = 0; // تعداد تلاش‌ها
-const maxAttempts = 10; // حداکثر تعداد تلاش‌ها
-let history = []; // تاریخچه تلاش‌ها
-
-// لیست کلمات برای انتخاب تصادفی
-let wordsList = ["شطرنج", "آسیاب", "دیروز", "لوستر", "اسباب", "بازار", "کتاب", "گل", "پرنده", "دریا"];
-let finalWords = []; // آرایه‌ای برای کلمات نهایی
-
-// انتخاب کلمات تصادفی برای هر ردیف
-for (let i = 0; i < maxAttempts; i++) {
-    let randomIndex = Math.floor(Math.random() * wordsList.length);
-    finalWords.push(wordsList[randomIndex]);
-}
-
-function setbox(word) {
-    if (fillboxnum >= 0 && fillboxnum < maxAttempts) { // تغییر به < maxAttempts
-        fillboxnum = fillboxnum + 1;
-        // محاسبه‌ی شماره باکس بر اساس تعداد تلاش‌ها و باکس‌های موجود
-        let boxIndex = attempts * 5 + fillboxnum; // هر ردیف 5 باکس دارد
-        document.getElementById(`box${boxIndex}`).outerHTML =
-            `<div class="seebox-fill" id="box${boxIndex}">${word}</div>`;
-        wordle.push(word);
-    }
-
-    // بررسی اینکه آیا ردیف پر شده است
-    if (fillboxnum === 5) { // هر ردیف 5 باکس دارد
-        confirmation(); // تایید کلمه
-    }
-}
-
-function remove() {
-    if (fillboxnum >= 1 && fillboxnum <= 5) { // تغییر به <= 5
-        let boxIndex = attempts * 5 + fillboxnum; // محاسبه‌ی شماره باکس
-        document.getElementById(`box${boxIndex}`).outerHTML =
-            `<div class="seebox" id="box${boxIndex}"></div>`;
-        fillboxnum = fillboxnum - 1;
-        wordle.pop();
-    }
-}
-
-function confirmation() {
-    if (attempts < maxAttempts) {
-        if (wordle.join("") === finalWords[attempts]) { // مقایسه با کلمه نهایی
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: "افرین",
-                showConfirmButton: false,
-                timer: 1500
-            });
-            history.push(`تلاش ${attempts + 1}: ${wordle.join("")} - موفق`);
-            attempts++; // افزایش تعداد تلاش‌ها
-            fillboxnum = 0; // بازنشانی شماره پر کردن خانه‌ها
-            wordle = []; // بازنشانی آرایه کلمات پر شده
-        } else {
-            Swal.fire({
-                position: 'center',
-                icon: 'error',
-                title: "اشتباه است",
-                showConfirmButton: false,
-                timer: 1500
-            });
-            history.push(`تلاش ${attempts + 1}: ${wordle.join("")} - ناموفق`);
-            attempts++;
-            fillboxnum = 0; // بازنشانی شماره پر کردن خانه‌ها
-            wordle = []; // بازنشانی آرایه کلمات پر شده
-        }
-        
-        // نمایش تاریخچه تلاش‌ها
-        displayHistory();
-        
-        // بررسی اینکه آیا حداکثر تلاش‌ها انجام شده است یا خیر
-        if (attempts >= maxAttempts) {
-            Swal.fire({
-                position: 'center',
-                icon: 'info',
-                title: "تعداد تلاش‌ها به پایان رسید!",
-                text: `کلمات صحیح: ${finalWords.join(", ")}`,
-                showConfirmButton: true
-            });
-        }
-    }
-}
-
-function displayHistory() {
-    const historyContainer = document.getElementById("history");
-    historyContainer.innerHTML = ""; // پاک کردن تاریخچه قبلی
-    history.forEach(entry => {
-        const div = document.createElement("div");
-        div.textContent = entry;
-        historyContainer.appendChild(div);
-    });
-}
-
-function guide(word) {
-    Swal.fire({
-        position: 'center',
-        icon: 'info',
-        title: ".. موقعی که به یک خانه ی جدید میرویم چی را جابه جا میکنیم ..یک چیز نورانی است در خانه .. فردا نیست.. یک بازی فکری است .. یک مکانی است  که مردم از ان خرید میکنند",
-        showConfirmButton: false,
-    });
-}
-
-
-
-
-
-
-
-
-
-</script>
-
