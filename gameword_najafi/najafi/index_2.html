@@ -103,7 +103,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     // Check if username and password are correct
     if (localStorage.getItem(username) === password) {
         alert('ورود موفقیت‌آمیز بود!');
-        window.location.href = "wordgamenajafi/saveme.html"; // Redirect to the next page
+        window.location.href = "wordgame/saveme.html"; // Redirect to the next page
     } else {
         document.getElementById('login-errorMessage').innerText = 'نام کاربری یا رمز عبور اشتباه است';
     }
