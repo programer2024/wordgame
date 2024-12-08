@@ -200,11 +200,29 @@ footer {
 document.addEventListener('DOMContentLoaded', function() {
     const searchBar = document.querySelector('.search-bar input');
     const searchButton = document.querySelector('.search-bar button');
+    const searchResults = document.getElementById('search-results');
+    const resultsContainer = document.getElementById('results-container');
 
     searchButton.addEventListener('click', function() {
-        const query = searchBar.value;
-        alert('جستجوی شما: ' + query);
-        // در اینجا می‌توانید کد جستجو یا هدایت به صفحه دیگر را اضافه کنید
+        const query = searchBar.value.toLowerCase();
+        const newsItems = document.querySelectorAll('.news-item');
+        resultsContainer.innerHTML = '';
+        let found = false;
+
+        newsItems.forEach(item => {
+            const title = item.getAttribute('data-title').toLowerCase();
+            if (title.includes(query)) {
+                resultsContainer.appendChild(item.cloneNode(true));
+                found = true;
+            }
+        });
+
+        if (found) {
+            searchResults.style.display = 'block';
+        } else {
+            searchResults.style.display = 'none';
+            alert('هیچ نتیجه‌ای یافت نشد');
+        }
     });
 
     // Initialize Slick slider
@@ -220,7 +238,6 @@ document.addEventListener('DOMContentLoaded', function() {
         nextArrow: '#nextButton'
     });
 });
-
 
         
     </script>
