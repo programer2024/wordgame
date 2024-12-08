@@ -3,127 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فوتبال ترانسفر</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    direction: rtl;
-    background-color: #f4f4f4;
-}
-
-header {
-    background-color: #333;
-    color: #ffffff;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.logo h1 {
-    margin: 0 20px;
-}
-
-.search-bar {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.search-bar input[type="text"] {
-    padding: 5px;
-    border: none;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-.search-bar button {
-    padding: 5px 10px;
-    background-color: #ffffff;
-    color: #333;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;	
-}
-
-main {
-    padding: 20px;
-}
-
-.featured-news, .latest-news {
-    margin-bottom: 20px;
-}
-
-.news-item {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin: 10px 0;
-    padding: 10px;
-    text-align: center;
-}
-
-.news-item img {
-    max-width: 100%;
-    height: auto;
-}
-
-.news-item h3 {
-    margin: 10px 0;
-}
-
-footer {
-    background-color: #333;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-}
-
-@media (max-width: 768px) {
-    .news-item {
-        width: calc(50% - 20px);
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .news-item {
-        width: calc(100% - 20px);
-    }
-}
-
-
-
-	
-</style>
+    <title>اخبار ورزشی</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <h2>اخبار رسانه فوتبال ترانسفر</h2>
+            <h1>اخبار ورزشی</h1>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="جستجو...">
@@ -132,8 +20,9 @@ footer {
         <nav>
             <ul>
                 <li><a href="#">اختصاصی</a></li>
-                <li><a href="#">مناظره سرخابی</a></li>
                 <li><a href="index.html">ثبت نام/ورود</a></li>
+                <li><a href="#">مناظره سرخابی</a></li>
+                <li><a href="#">خلاصه بازی ها</a></li>
                 <li><a href="#">تماس با ما</a></li>
             </ul>
         </nav>
@@ -141,19 +30,21 @@ footer {
     <main>
         <section class="featured-news">
             <h2>خبرهای ویژه</h2>
-            <div class="news-item">
-                <img src="news1.jpg" alt="خبر 1">
-                <h3>عنوان خبر 1</h3>
-                <p>خلاصه‌ای از خبر 1</p>
-                <a href="#">ادامه خبر</a>
+            <div class="news-slider">
+                <div class="news-item">
+                    <img src="news1.jpg" alt="خبر 1">
+                    <h3>عنوان خبر 1</h3>
+                    <p>خلاصه‌ای از خبر 1</p>
+                    <a href="#">ادامه خبر</a>
+                </div>
+                <div class="news-item">
+                    <img src="news2.jpg" alt="خبر 2">
+                    <h3>عنوان خبر 2</h3>
+                    <p>خلاصه‌ای از خبر 2</p>
+                    <a href="#">ادامه خبر</a>
+                </div>
+                <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
             </div>
-            <div class="news-item">
-                <img src="news2.jpg" alt="خبر 2">
-                <h3>عنوان خبر 2</h3>
-                <p>خلاصه‌ای از خبر 2</p>
-                <a href="#">ادامه خبر</a>
-            </div>
-            <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
         </section>
         <section class="latest-news">
             <h2>جدیدترین خبرها</h2>
@@ -173,18 +64,9 @@ footer {
     <footer>
         <p>کلیه حقوق محفوظ است &copy; 2024</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchBar = document.querySelector('.search-bar input');
-    const searchButton = document.querySelector('.search-bar button');
-
-    searchButton.addEventListener('click', function() {
-        const query = searchBar.value;
-        alert('جستجوی شما: ' + query);
-        // در اینجا می‌توانید کد جستجو یا هدایت به صفحه دیگر را اضافه کنید
-    });
-});
-
 
 	    
     </script>
