@@ -199,19 +199,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Initialize Slick slider
-    $('.news-slider').slick({
+    const slider = $('.news-slider').slick({
         dots: true,
         infinite: true,
         speed: 300,
         slidesToShow: 1,
         adaptiveHeight: true,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 10000, // Increase autoplay speed to 10 seconds
         prevArrow: '#prevButton',
         nextArrow: '#nextButton'
     });
-});
 
+    // Pause autoplay on button click
+    $('#prevButton').on('click', function() {
+        slider.slick('slickPause');
+    });
+
+    $('#nextButton').on('click', function() {
+        slider.slick('slickPause');
+    });
+});
 
 	    
     </script>
