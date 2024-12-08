@@ -1,387 +1,228 @@
 <!DOCTYPE html>
-
 <html lang="fa">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>فوتبال ترانسفر</title>
-
-    <link rel="shortcut icon" type="image/jpg" href="img/IMG_20241202_220530_213.jpg"/>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-
     <style>
-
-        body {
-
-            font-family: Arial, sans-serif;
-
-            margin: 0;
-
-            padding: 0;
-
-            direction: rtl;
-
-            background-color: #f4f4f4;
-
-        }
-
-        header {
-
-            background-color: #333;
-
-            color: #ffffff;
-
-            padding: 10px 0;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            flex-wrap: wrap;
-
-        }
-
-        .logo h1 {
-
-            margin: 0 20px;
-
-        }
-
-        .search-bar {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-        }
-
-        .search-bar input[type="text"] {
-
-            padding: 5px;
-
-            border: none;
-
-            border-radius: 4px;
-
-            margin-right: 10px;
-
-        }
-
-        .search-bar button {
-
-            padding: 5px 10px;
-
-            background-color: #ffffff;
-
-            color: #333;
-
-            border: none;
-
-            border-radius: 4px;
-
-            cursor: pointer;
-
-        }
-
-        nav ul {
-
-            list-style: none;
-
-            margin: 0;
-
-            padding: 0;
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-        }
-
-        nav ul li {
-
-            margin: 0 10px;
-
-        }
-
-        nav ul li a {
-
-            color: #ffffff;
-
-            text-decoration: none;
-
-        }
-
-        main {
-
-            padding: 20px;
-
-        }
-
-        .featured-news, .latest-news {
-
-            margin-bottom: 20px;
-
-        }
-
-        .news-slider {
-
-            display: flex;
-
-            flex-wrap: nowrap;
-
-        }
-
-        .news-item {
-
-            background-color: #ffffff;
-
-            border: 1px solid #ddd;
-
-            border-radius: 4px;
-
-            margin: 10px;
-
-            padding: 10px;
-
-            text-align: center;
-
-            flex: 0 0 100%;
-
-        }
-
-        .news-item img {
-
-            max-width: 100%;
-
-            height: auto;
-
-        }
-
-        .news-item h3 {
-
-            margin: 10px 0;
-
-        }
-
-        footer {
-
-            background-color: #333;
-
-            color: #ffffff;
-
-            text-align: center;
-
-            padding: 10px 0;
-
-        }
-
-        @media (max-width: 768px) {
-
-            .news-item {
-
-                width: 100%;
-
-            }
-
-        }
-
-        @media (max-width: 480px) {
-
-            header {
-
-                flex-direction: column;
-
-                align-items: flex-start;
-
-            }
-
-            .news-item {
-
-                width: 100%;
-
-            }
-
-        }
-
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo h1 {
+    margin: 0 20px;
+}
+
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-bar input[type="text"] {
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #ffffff;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.featured-news, .latest-news {
+    margin-bottom: 20px;
+}
+
+.news-slider {
+    display: flex;
+    justify-content: space-between;
+}
+
+.news-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.news-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.news-item h3 {
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#prevButton, #nextButton {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+@media (max-width: 768px) {
+    .news-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .news-item {
+        width: calc(100% - 20px);
+    }
+}
+
+
+        
     </style>
-
 </head>
-
 <body>
-
     <header>
-
         <div class="logo">
-
-            <h1>رسانه فوتبال ترانسفر</h1>
-
+            <h2>رسانه فوتبال ترانسفر</h2>
         </div>
-
         <div class="search-bar">
-
             <input type="text" placeholder="جستجو...">
-
             <button>جستجو</button>
-
         </div>
-
         <nav>
-
             <ul>
-
+                <li><a href="#">خانه</a></li>
                 <li><a href="#">اختصاصی</a></li>
-
-                <li><a href="index.html">ثبت نام/ورود</a></li>
-
                 <li><a href="#">مناظره سرخابی</a></li>
-
-                <li><a href="#">خلاصه بازی ها</a></li>
-
+                <li><a href="index.html">ثبت نام / ورود</a></li>
                 <li><a href="#">تماس با ما</a></li>
-
             </ul>
-
         </nav>
-
     </header>
-
     <main>
-
         <section class="featured-news">
-
             <h2>خبرهای ویژه</h2>
-
             <div class="news-slider">
-
                 <div class="news-item">
-
-                    <img src="./infographic1.png" alt="خبر 1">
-
-                    <h3>صحبت های جدید علی دایی</h3>
-
-                    <p>علی دایی: با همه عکس می‌گیرم حتی اگر بی‌حجاب باشند!/ آقایان! اینجا فوتبال است نه دادگستری</p>
-
-                    <a href="#">ادامه خبر</a>
-
-                </div>
-
-                <div class="news-item">
-
-                    <img src="img/365858.jpg" alt="خبر 2">
-
-                    <h3> گاریدو به اخراج نزدیک شد</h3>
-
+                    <img src="img/346121.jpg" alt="خبر 1">
+                    <h3>گاریدو به اخراج نزدیک شد!</h3>
                     <p>پرسپولیس صفر - نساجی یک / الهامی دوباره ساکت پاشا شد؛ تنبیه پرسپولیس در هوای آلوده!</p>
-
                     <a href="#">ادامه خبر</a>
-
                 </div>
-
+                <div class="news-item">
+                    <img src="366051.jpg" alt="خبر 2">
+                    <h3>تنبیه موسیمانه علیه مرادمند</h3>
+                    <p>تنبیه مرادمند به سبک موسیمانه؛ مدافعی که حین خروج با هم تیمی‌اش دست نداد!/ سرمربی استقلال چطور با یک تیر سه نشان زد؟</p>
+                    <a href="#">ادامه خبر</a>
+                </div>
                 <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
-
             </div>
-
+            <button id="prevButton">قبلی</button>
+            <button id="nextButton">بعدی</button>
         </section>
-
         <section class="latest-news">
-
             <h2>جدیدترین خبرها</h2>
-
-            <div class="news-slider">
-
-                <div class="news-item">
-
-                    <h3>عنوان خبر 3</h3>
-
-                    <p>خلاصه‌ای از خبر 3</p>
-
-                    <a href="#">ادامه خبر</a>
-
-                </div>
-
-                <div class="news-item">
-
-                    <h3>عنوان خبر 4</h3>
-
-                    <p>خلاصه‌ای از خبر 4</p>
-
-                    <a href="#">ادامه خبر</a>
-
-                </div>
-
-                <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
-
+            <div class="news-item">
+                <h3>عنوان خبر 3</h3>
+                <p>خلاصه‌ای از خبر 3</p>
+                <a href="#">ادامه خبر</a>
             </div>
-
+            <div class="news-item">
+                <h3>عنوان خبر 4</h3>
+                <p>خلاصه‌ای از خبر 4</p>
+                <a href="#">ادامه خبر</a>
+            </div>
+            <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
         </section>
-
     </main>
-
     <footer>
-
         <p>کلیه حقوق محفوظ است &copy; 2024</p>
-
     </footer>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
     <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchBar = document.querySelector('.search-bar input');
+    const searchButton = document.querySelector('.search-bar button');
 
-        document.addEventListener('DOMContentLoaded', function() {
+    searchButton.addEventListener('click', function() {
+        const query = searchBar.value;
+        alert('جستجوی شما: ' + query);
+        // در اینجا می‌توانید کد جستجو یا هدایت به صفحه دیگر را اضافه کنید
+    });
 
-            const searchBar = document.querySelector('.search-bar input');
-
-            const searchButton = document.querySelector('.search-bar button');
-
-
-
-            searchButton.addEventListener('click', function() {
-
-                const query = searchBar.value;
-
-                alert('جستجوی شما: ' + query);
-
-                // در اینجا می‌توانید کد جستجو یا هدایت به صفحه دیگر را اضافه کنید
-
-            });
+    // Initialize Slick slider
+    $('.news-slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        prevArrow: '#prevButton',
+        nextArrow: '#nextButton'
+    });
+});
 
 
-
-            // Initialize Slick slider
-
-            $('.news-slider').slick({
-
-                dots: true,
-
-                infinite: true,
-
-                speed: 300,
-
-                slidesToShow: 1,
-
-                adaptiveHeight: true,
-
-                autoplay: true,
-
-                autoplaySpeed: 2000
-
-            });
-
-        });
-
+        
     </script>
-
 </body>
-
 </html>
