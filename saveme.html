@@ -1,4 +1,4 @@
-j<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
@@ -132,17 +132,16 @@ footer {
     }
 }
 
-
         
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <h2>رسانه فوتبال ترانسفر</h2>
+            <h1>رسانه فوتبال ترانسفر</h1>
         </div>
         <div class="search-bar">
-            <input type="text" id="searchInput"  placeholder="جستجو...">
+            <input type="text" id="searchInput" placeholder="جستجو...">
             <button id="searchButton">جستجو</button>
         </div>
         <nav>
@@ -159,16 +158,16 @@ footer {
         <section class="featured-news">
             <h2>خبرهای ویژه</h2>
             <div class="news-slider">
-                <div class="news-item">
+                <div class="news-item" data-title="عنوان خبر 1">
                     <img src="img/365858.jpg" alt="خبر 1">
                     <h3>گاریدو به اخراج نزدیک شد!</h3>
-                    <p>پرسپولیس صفر - نساجی یک / الهامی دوباره ساکت پاشا شد؛ تنبیه پرسپولیس در هوای آلوده!</p>
+                    <p>پرسپولیس در هفته یازدهم درحالی شکست خورد تا کار گاریدو سخت بشود.</p>
                     <a href="#">ادامه خبر</a>
                 </div>
-                <div class="news-item">
+                <div class="news-item" data-title="عنوان خبر 2">
                     <img src="img/366051.jpg" alt="خبر 2">
                     <h3>تنبیه موسیمانه علیه مرادمند</h3>
-                    <p>تنبیه مرادمند به سبک موسیمانه؛ مدافعی که حین خروج با هم تیمی‌اش دست نداد!/ سرمربی استقلال چطور با یک تیر سه نشان زد؟</p>
+                    <p>خلاصه‌ای از خبر 2</p>
                     <a href="#">ادامه خبر</a>
                 </div>
                 <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
@@ -178,19 +177,21 @@ footer {
         </section>
         <section class="latest-news">
             <h2>جدیدترین خبرها</h2>
-            <div class="news-item">
+            <div class="news-item" data-title="عنوان خبر 3">
                 <h3>عنوان خبر 3</h3>
                 <p>خلاصه‌ای از خبر 3</p>
                 <a href="#">ادامه خبر</a>
             </div>
-            <div class="news-item">
+            <div class="news-item" data-title="عنوان خبر 4">
                 <h3>عنوان خبر 4</h3>
                 <p>خلاصه‌ای از خبر 4</p>
                 <a href="#">ادامه خبر</a>
             </div>
             <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
         </section>
-        <section id="search-results" style="display:none;"> <h2>نتایج جستجو</h2> <div id="results-container"></div>
+        <section id="search-results" style="display:none;">
+            <h2>نتایج جستجو</h2>
+            <div id="results-container"></div>
         </section>
     </main>
     <footer>
@@ -200,30 +201,38 @@ footer {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const searchBar = document.querySelector('.search-bar input');
-    const searchButton = document.querySelector('.search-bar button');
+    const searchButton = document.getElementById('searchButton');
+    const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('search-results');
     const resultsContainer = document.getElementById('results-container');
+    const featuredNewsSection = document.querySelector('.featured-news');
+    const latestNewsSection = document.querySelector('.latest-news');
 
     searchButton.addEventListener('click', function() {
-        const query = searchBar.value.toLowerCase();
+        const query = searchInput.value.toLowerCase();
         const newsItems = document.querySelectorAll('.news-item');
         resultsContainer.innerHTML = '';
         let found = false;
 
         newsItems.forEach(item => {
-            const title = item.getAttribute('data-title').toLowerCase();
-            if (title.includes(query)) {
-                resultsContainer.appendChild(item.cloneNode(true));
+            const title = item.querySelector('h3').innerText.toLowerCase();
+            const summary = item.querySelector('p').innerText.toLowerCase();
+            if (title.includes(query) || summary.includes(query)) {
+                const clonedItem = item.cloneNode(true);
+                resultsContainer.appendChild(clonedItem);
                 found = true;
             }
         });
 
         if (found) {
             searchResults.style.display = 'block';
+            featuredNewsSection.style.display = 'none';
+            latestNewsSection.style.display = 'none';
         } else {
             searchResults.style.display = 'none';
             alert('هیچ نتیجه‌ای یافت نشد');
+            featuredNewsSection.style.display = 'block';
+            latestNewsSection.style.display = 'block';
         }
     });
 
@@ -240,6 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
         nextArrow: '#nextButton'
     });
 });
+
 
         
     </script>
