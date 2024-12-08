@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فوتبالترانسفر</title>
+    <title>فوتبال ترانسفر</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 	<style>
@@ -76,7 +76,8 @@ main {
 }
 
 .news-slider {
-    display: block;
+    display: flex;
+    justify-content: space-between;
 }
 
 .news-item {
@@ -104,43 +105,14 @@ footer {
     padding: 10px 0;
 }
 
-.slick-prev, .slick-next {
+#prevButton, #nextButton {
+    padding: 10px 20px;
     background-color: #333;
     color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    padding: 10px 20px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.slick-prev {
-    left: 10px;
-}
-
-.slick-next {
-    right: 10px;
-}
-
-.user-panel {
-    display: flex;
-    align-items: center;
-}
-
-.user-panel span {
-    color: #ffffff;
-    margin-left: 10px;
-}
-
-.user-panel button {
-    padding: 5px 10px;
-    background-color: #ffffff;
-    color: #333;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    margin: 10px;
 }
 
 @media (max-width: 768px) {
@@ -160,13 +132,14 @@ footer {
     }
 }
 
+
 		
 	</style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <h2>رسانه فوتبال ترانسفر</h2>
+            <h2>فوتبال ترانسفر</h2>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="جستجو...">
@@ -174,64 +147,27 @@ footer {
         </div>
         <nav>
             <ul>
-                <li><a href="#">خانه</a></li>
-                <li><a href="#">اختصاصی</a></li>
-                <li><a href="#">مناظره سرخابی</a></li>
                 <li><a href="#">خلاصه بازی ها</a></li>
+                <li><a href="#">مناظره سرخابی</a></li>
+                <li><a href="#">ثبت نام/ورود</a></li>
                 <li><a href="#">تماس با ما</a></li>
             </ul>
         </nav>
-        <div class="user-panel" id="userPanel" style="display:none;">
-            <span id="userName"></span>
-            <button id="logoutButton">خروج</button>
-        </div>
     </header>
     <main>
-        <section id="login-signup-section">
-            <div class="container">
-                <div id="login-container" class="form-container">
-                    <form id="loginForm">
-                        <h2>ورود</h2>
-                        <label for="login-username">نام کاربری</label>
-                        <input type="text" id="login-username" name="username" required>
-                        <label for="login-password">رمز عبور</label>
-                        <input type="password" id="login-password" name="password" required>
-                        <button type="submit">ورود</button>
-                    </form>
-                    <p id="login-errorMessage" class="error-message"></p>
-                </div>
-                <div id="signup-container" class="form-container">
-                    <form id="signupForm">
-                        <h2>ثبت نام</h2>
-                        <label for="signup-username">نام کاربری</label>
-                        <input type="text" id="signup-username" name="username" required>
-                        <label for="signup-password">رمز عبور</label>
-                        <input type="password" id="signup-password" name="password" required>
-                        <button type="submit">ثبت نام</button>
-                    </form>
-                    <p id="signup-errorMessage" class="error-message"></p>
-                </div>
-            </div>
-        </section>
-        <section id="featured-news" class="featured-news" style="display:none;">
+        <section class="featured-news">
             <h2>خبرهای ویژه</h2>
             <div class="news-slider">
                 <div class="news-item">
-                    <img src="news1.jpg" alt="خبر 1">
-                    <h3>عنوان خبر 1</h3>
-                    <p>خلاصه‌ای از خبر 1</p>
+                    <img src="img/346121.jpg" alt="خبر 1">
+                    <h3>صحبت های علی دایی:</h3>
+                    <p>علی دایی: با همه عکس می‌گیرم حتی اگر بی‌حجاب باشند!/ آقایان! اینجا فوتبال است نه دادگستری</p>
                     <a href="#">ادامه خبر</a>
                 </div>
                 <div class="news-item">
-                    <img src="news2.jpg" alt="خبر 2">
-                    <h3>عنوان خبر 2</h3>
-                    <p>خلاصه‌ای از خبر 2</p>
-                    <a href="#">ادامه خبر</a>
-                </div>
-                <div class="news-item">
-                    <img src="news3.jpg" alt="خبر 3">
-                    <h3>عنوان خبر 3</h3>
-                    <p>خلاصه‌ای از خبر 3</p>
+                    <img src="img/365858.jpg" alt="خبر 2">
+                    <h3>گاریدو به اخراج نزدیک شد.</h3>
+                    <p>پرسپولیس صفر - نساجی یک / الهامی دوباره ساکت پاشا شد؛ تنبیه پرسپولیس در هوای آلوده!</p>
                     <a href="#">ادامه خبر</a>
                 </div>
                 <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
@@ -239,16 +175,16 @@ footer {
             <button id="prevButton">قبلی</button>
             <button id="nextButton">بعدی</button>
         </section>
-        <section id="latest-news" class="latest-news" style="display:none;">
+        <section class="latest-news">
             <h2>جدیدترین خبرها</h2>
             <div class="news-item">
-                <h3>عنوان خبر 4</h3>
-                <p>خلاصه‌ای از خبر 4</p>
+                <h3>عنوان خبر 3</h3>
+                <p>خلاصه‌ای از خبر 3</p>
                 <a href="#">ادامه خبر</a>
             </div>
             <div class="news-item">
-                <h3>عنوان خبر 5</h3>
-                <p>خلاصه‌ای از خبر 5</p>
+                <h3>عنوان خبر 4</h3>
+                <p>خلاصه‌ای از خبر 4</p>
                 <a href="#">ادامه خبر</a>
             </div>
             <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
@@ -260,7 +196,7 @@ footer {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
-	    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const searchBar = document.querySelector('.search-bar input');
     const searchButton = document.querySelector('.search-bar button');
 
@@ -271,77 +207,16 @@ footer {
     });
 
     // Initialize Slick slider
-    const slider = $('.news-slider').slick({
+    $('.news-slider').slick({
         dots: true,
         infinite: true,
         speed: 300,
         slidesToShow: 1,
         adaptiveHeight: true,
         autoplay: true,
-        autoplaySpeed: 5000, // نمایش اسلایدها به مدت 5 ثانیه
+        autoplaySpeed: 2000,
         prevArrow: '#prevButton',
         nextArrow: '#nextButton'
-    });
-
-    // Re-enable autoplay after a certain period if needed
-    $('#prevButton, #nextButton').on('click', function() {
-        slider.slick('slickPause');
-        setTimeout(function() {
-            slider.slick('slickPlay');
-        }, 10000); // Re-enable autoplay after 10 seconds
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const loginForm = document.getElementById('loginForm');
-    const signupForm = document.getElementById('signupForm');
-    const userNameDisplay = document.getElementById('userName');
-    const userPanel = document.getElementById('userPanel');
-    const loginSignupSection = document.getElementById('login-signup-section');
-    const featuredNews = document.getElementById('featured-news');
-    const latestNews = document.getElementById('latest-news');
-
-    signupForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('signup-username').value;
-        const password = document.getElementById('signup-password').value;
-
-        if (localStorage.getItem(username)) {
-            document.getElementById('signup-errorMessage').innerText = 'نام کاربری از قبل وجود دارد';
-        } else {
-            localStorage.setItem(username, password);
-            alert('ثبت نام موفقیت‌آمیز بود!');
-            loginSignupSection.style.display = 'none';
-            featuredNews.style.display = 'block';
-            latestNews.style.display = 'block';
-            userPanel.style.display = 'flex';
-            userNameDisplay.textContent = username;
-        }
-    });
-
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('login-username').value;
-        const password = document.getElementById('login-password').value;
-
-        if (localStorage.getItem(username) === password) {
-            alert('ورود موفقیت‌آمیز بود!');
-            loginSignupSection.style.display = 'none';
-            featuredNews.style.display = 'block';
-            latestNews.style.display = 'block';
-            userPanel.style.display = 'flex';
-            userNameDisplay.textContent = username;
-        } else {
-            document.getElementById('login-errorMessage').innerText = 'نام کاربری یا رمز عبور اشتباه است';
-        }
-    });
-
-    document.getElementById('logoutButton').addEventListener('click', function() {
-        loginSignupSection.style.display = 'block';
-        featuredNews.style.display = 'none';
-        latestNews.style.display = 'none';
-        userPanel.style.display = 'none';
-        userNameDisplay.textContent = '';
     });
 });
 
