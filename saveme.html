@@ -164,6 +164,8 @@ footer {
                 </div>
                 <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
             </div>
+	    <button id="prevButton">قبلی</button>
+            <button id="nextButton">بعدی</button>
         </section>
         <section class="latest-news">
             <h2>جدیدترین خبرها</h2>
@@ -204,9 +206,12 @@ document.addEventListener('DOMContentLoaded', function() {
         slidesToShow: 1,
         adaptiveHeight: true,
         autoplay: true,
-        autoplaySpeed: 2000
+        autoplaySpeed: 2000,
+        prevArrow: '#prevButton',
+        nextArrow: '#nextButton'
     });
 });
+
 
 	    
     </script>
