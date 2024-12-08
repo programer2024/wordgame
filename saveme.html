@@ -230,24 +230,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const slider = $('.news-slider').slick({
         dots: true,
         infinite: true,
-        speed:300,
+        speed: 300,
         slidesToShow: 1,
         adaptiveHeight: true,
-        autoplay: true,
-        autoplaySpeed: 10000, // Increase autoplay speed to 10 seconds
+        autoplay: false, // Disable autoplay to let users control the slides
         prevArrow: '#prevButton',
         nextArrow: '#nextButton'
     });
 
-    // Pause autoplay on button click
-    $('#prevButton').on('click', function() {
+    // Re-enable autoplay after a certain period if needed
+    $('#prevButton, #nextButton').on('click', function() {
         slider.slick('slickPause');
-    });
-
-    $('#nextButton').on('click', function() {
-        slider.slick('slickPause');
+        setTimeout(function() {
+            slider.slick('slickPlay');
+        }, 10000); // Re-enable autoplay after 10 seconds
     });
 });
+
 
 	    
     </script>
