@@ -77,7 +77,9 @@ main {
     margin-bottom: 20px;
 }
 
-
+.news-slider {
+    display: block;
+}
 
 .news-item {
     background-color: #ffffff;
@@ -104,27 +106,6 @@ footer {
     padding: 10px 0;
 }
 
-@media (max-width: 768px) {
-    .news-item {
-        width: calc(50% - 20px);
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .news-item {
-        width: calc(100% - 20px);
-    }
-}
-
-.news-slider {
-    display: block; /* تنظیم نمایش به حالت بلوک برای جلوگیری از فاصله‌ها */
-}
-
 .slick-prev, .slick-next {
     background-color: #333;
     color: #ffffff;
@@ -144,7 +125,24 @@ footer {
 .slick-next {
     right: 10px;
 }
-		
+
+@media (max-width: 768px) {
+    .news-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .news-item {
+        width: calc(100% - 20px);
+    }
+}
+
 		
 	</style>
 </head>
@@ -233,7 +231,8 @@ document.addEventListener('DOMContentLoaded', function() {
         speed: 300,
         slidesToShow: 1,
         adaptiveHeight: true,
-        autoplay: false, // Disable autoplay to let users control the slides
+        autoplay: true,
+        autoplaySpeed: 5000, // نمایش اسلایدها به مدت 5 ثانیه
         prevArrow: '#prevButton',
         nextArrow: '#nextButton'
     });
