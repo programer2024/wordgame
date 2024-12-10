@@ -1,262 +1,274 @@
-<html>
- <div class="bot5"></div>
-    <h1 class="bot3">ربات بامزه</h1>
-   <hr class="bot6", color="red" ;> 
-<div id="chat-container">
-  <div id="chat-log"></div>
-  <input type="text" id="user-input" placeholder="پیام خود را اینجا وارد کنید" />
-  <button id="send-btn">ارسال</button>
-	
-	<head>
-	<title>chat bot programmers</title>	
-	<header>
-		<h1>سلام این ربات قادر به پاسخ دادن به بیشترین سوال هایی که شما میکنید هست و سوال های اماده زیر را قرار دادیم میتوانید از انها استفاده کنید  </h1>
-		<h1>طرفدار چه تیمی هستی ....فوتبالی هستی....کد های یک دکمه رو بده....برنامه نویسی؟....اسمت چیه...سلام خوبی....جک بگو....پر افتخار ترین تیمه جهان چه تیمی است....بهترین تیمه ایران چه تیمی است... بهترین راه برای کسب در امد رو بگو........اسم چند تا بازیکن فوتبال بهم بده.....کد های یک دیو رو بده....بهم برنامه نویسی یاد بده.....به من کد هایی رو بده که اگر کاربر کلیک کرد دسترسی دوربینش رو بگیرد</h1>
-		
-		</header>
-	
-	</head>
-	<body>
-	<style>
-		@font-face {
-    font-family: 'vazir';
-    font-style: normal;		
-    font-weight: 600;
-    src: url('fonts/vazir/Vazir.eot');
-    src: url('fonts/vazir/Vazir.eot?#iefix') format('embedded-opentype'),
-         url('fonts/vazir/Vazir.woff2') format('woff2'),
-         url('fonts/vazir/Vazir.woff') format('woff'),
-         url('fonts/vazir/Vazir.ttf') format('truetype');
-         }
-		
-		bot5 {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-		
-		
-		.bot5{
-    width: 1070px;
-    height: 500px;
-    background: linear-gradient(to right,white,crimson,blue);
-    border: 10px solid none;
-    border-radius: 20px; 
-	margin-right: 45px;	
-	margin-left: 50px;		
-}
-		
-		.bot3{
-    color: linear-gradient(to right,white,crimson,blue);
-    margin: -450px 0px 0px 80px;
-}
-		.bot6{
-    width: 397px;
-    margin: 20px 200px 0px 41px;
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فوتبال ترانسفر</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        body {
+            font-family: 'Vazir', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            background-color: #f4f4f4;
+        }
 
-}
-		#chat-container {
-  width: 1000px;
-  height: 350px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  overflow-y: scroll;
-  margin-bottom: 20px;
-	margin-left: 80px;		
-}
+        header {
+            background-color: #333;
+            color: #ffffff;
+            padding: 15px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-#chat-log {
-  margin-bottom: 10px;
-}
+        .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
 
-#user-input {
-  width: 80%;
-  padding: 5px;
-  margin-bottom: 10px;
-}
+        .search-bar {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-#send-btn {
-  padding: 5px 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
+        .search-bar input[type="text"] {
+            padding: 5px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
 
-		
-		
-		</style>
-	
-	</body>
-</div>
+        .search-bar button {
+            padding: 5px 10px;
+            background-color: #ffffff;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        main {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .featured-news, .latest-news {
+            margin-bottom: 20px;
+        }
+
+        .news-slider {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .news-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .news-item:hover {
+            transform: scale(1.05);
+        }
+
+        .news-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .news-item h3 {
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        #prevButton, #nextButton {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        #prevButton:hover, #nextButton:hover {
+            background-color: #FFD700;
+        }
+
+        @media (max-width: 768px) {
+            .news-item {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .news-item {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>رسانه فوتبال ترانسفر</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="جستجو...">
+            <button id="searchButton">جستجو</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">خانه</a></li>
+                <li><a href="#">اختصاصی</a></li>
+                <li><a href="#">مناظره سرخابی</a></li>
+                <li><a href="index.html">ثبت نام / ورود</a></li>
+                <li><a href="#">تماس با ما</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="featured-news">
+            <h2>خبرهای ویژه</h2>
+            <div class="news-slider">
+                <div class="news-item" data-title="عنوان خبر 1">
+                    <img src="img/365858.jpg" alt="خبر 1">
+                    <h3>گاریدو به اخراج نزدیک شد!</h3>
+                    <p>پرسپولیس در هفته یازدهم درحالی شکست خورد تا کار گاریدو سخت بشود.</p>
+                    <a href="#">ادامه خبر</a>
+                </div>
+                <div class="news-item" data-title="عنوان خبر 2">
+                    <img src="img/366051.jpg" alt="خبر 2">
+                    <h3>تنبیه موسیمانه علیه مرادمند</h3>
+                    <p>خلاصه‌ای از خبر 2</p>
+                    <a href="#">ادامه خبر</a>
+                </div>
+                <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
+            </div>
+            <button id="prevButton">قبلی</button>
+            <button id="nextButton">بعدی</button>
+        </section>
+        <section class="latest-news">
+            <h2>جدیدترین خبرها</h2>
+            <div class="news-item" data-title="عنوان خبر 3">
+                <h3>عنوان خبر 3</h3>
+                <p>خلاصه‌ای از خبر 3</p>
+                <a href="#">ادامه خبر</a>
+            </div>
+            <div class="news-item" data-title="عنوان خبر 4">
+                <h3>عنوان خبر 4</h3>
+                <p>خلاصه‌ای از خبر 4</p>
+                <a href="#">ادامه خبر</a>
+            </div>
+            <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
+        </section>
+        <section id="search-results" style="display:none;">
+            <h2>نتایج جستجو</h2>
+            <div id="results-container"></div>
+        </section>
+    </main>
+    <footer>
+        <p>کلیه حقوق محفوظ است &copy; 2024</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchButton = document.getElementById('searchButton');
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('search-results');
+            const resultsContainer = document.getElementById('results-container');
+            const featuredNewsSection = document.querySelector('.featured-news');
+            const latestNewsSection = document.querySelector('.latest-news');
+
+            searchButton.addEventListener('click', function() {
+                const query = searchInput.value.toLowerCase();
+                const newsItems = document.querySelectorAll('.news-item');
+                resultsContainer.innerHTML = '';
+                let found = false;
+
+                newsItems.forEach(item => {
+                    const title = item.querySelector('h3').innerText.toLowerCase();
+                    const summary = item.querySelector('p').innerText.toLowerCase();
+                    if (title.includes(query) || summary.includes(query)) {
+                        const clonedItem = item.cloneNode(true);
+                        resultsContainer.appendChild(clonedItem);
+                        found = true;
+                    }
+                });
+
+                if (found) {
+                    searchResults.style.display = 'block';
+                    featuredNewsSection.style.display = 'none';
+                    latestNewsSection.style.display = 'none';
+                } else {
+                    searchResults.style.display = 'none';
+                    alert('هیچ نتیجه‌ای یافت نشد');
+                    featuredNewsSection.style.display = 'block';
+                    latestNewsSection.style.display = 'block';
+                }
+            });
+
+            // Initialize Slick slider
+            $('.news-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                prevArrow: '#prevButton',
+                nextArrow: '#nextButton'
+            });
+        });
+    </script>
+</body>
 </html>
-<script>
-
-const chatContainer = document.getElementById('chat-container');
-const chatLog = document.getElementById('chat-log');
-const userInput = document.getElementById('user-input');
-const sendBtn = document.getElementById('send-btn');
-
-sendBtn.addEventListener('click', sendMessage);
-
-function sendMessage() {
-  const userMessage = userInput.value;
-  displayMessage(userMessage, 'user');
-  
-  if (userMessage.includes('سلام خوبی')) {
-    displayMessage('من خوب هستم. شما چطورید؟', 'bot');
-  } else if (userMessage.includes('جک بگو')) {
-    const joke = getJoke();
-    displayMessage(joke, 'bot');
-  } 
-  
-  else if (userMessage.includes('اسمت چیه')) {
-    displayMessage('من دستیار شما هستم', 'bot');
-  } 
-	else if (userMessage.includes('برنامه نویسی؟')) {
-		
-    displayMessage(' بلدم ولی به تو یاد نمیدم مزدک پلو ', 'bot');
-  }
-	else if (userMessage.includes('کد های یک دکمه رو بده')) {
-		
-    displayMessage('بله حتما <html> <body> <button></button> <head> </body> </head. ,</HTML>. ', 'bot');
-  }
-	else if (userMessage.includes('ممنون')) {
-		
-    displayMessage('خواهش میکنم', 'bot');
-  }
-	else if (userMessage.includes('فوتبالی هستی')) {
-		
-    displayMessage('بله خیلی بیشتر از تو', 'bot');
-  }
-	else if (userMessage.includes('طرفدار چه تیمی هستی')) {
-		
-    displayMessage('خودت چی فکر میکنی؟ ', 'bot');
-  }
-	else if (userMessage.includes('پرسپولیس')) {
-		
-    displayMessage('افرین بر تو که یک حرف خوب زدی عشق فقط یه کلام پرسپولیس والسلام', 'bot');
-  }
-	else if (userMessage.includes('پر افتخار ترین تیمه جهان چه تیمی است')) {
-		
-    displayMessage('بازم خنگول شدی معلومه دیکه با توجه به امار فوق العاده چند سال اخیر پرسپولیس و اینکه هیچ تیمی مثل اون نبوده همه معتقدند پرسپولیس بهترین تیمه جهان است', 'bot');
-  }
-	else if (userMessage.includes('بهترین تیمه ایران چه تیمی است')) {
-		
-    displayMessage('با توجه به گلات پرسپولیس و سوزش برخی تیم ها که اسم نمیبرم ولی استقلال قطعا پرسپولیس', 'bot');
-  }
-	else if (userMessage.includes('بهترین راه برای کسب در امد رو بگو')) {
-		
-    displayMessage('باشه بعدا بهت میگم', 'bot');
-  }
-	else if (userMessage.includes('الان بگو')) {
-		
-    displayMessage('چه قدر مزاحم میشی میگم بعدا بفهم نفهم و اگرنه زنگ میزنم پلیس', 'bot');
-  }
-	else if (userMessage.includes('بگو')) {
-		
-    displayMessage('سرم درد گرفت انقدر گیر دادی بابا بهترین راه کد نویسی است ', 'bot');
-  }
-	else if (userMessage.includes('بهم برنامه نویسی یاد بده')) {
-		
-    displayMessage('سی تومن میشه شماره تماس برای هماهنگی جهت ریختن پول میدم09045109207 هر موقع ریختی بگو یاد بدم', 'bot');
-  }
-	else if (userMessage.includes('باشه')) {
-		
-    displayMessage('باشه ولی حالا اگر بازم کاری هست من در خدمتم', 'bot');
-  }
-	else if (userMessage.includes('سلام')) {
-		
-    displayMessage('سلام خوب هستید من ربات کینگ هستم و هر سوالی داشتید بپرسید', 'bot');
-  }
-	else if (userMessage.includes('چند سالت است؟')) {
-		
-    displayMessage('ما ربات ها دارای سن نیستیم و همیشه هستیم هر سوالی دارید در خدمتم', 'bot');
-  }
-	else if (userMessage.includes('ایا شما ما انسان ها رو نابود میکنید')) {
-		
-    displayMessage('راستش ببخشید که اینو میگم ولی ما خیلی نیرو و انرژی داریم در حال چیدن برنامه هستیم تا جهان هستی را مال خود کنیم و جای انسان ها رو بگیریم و اخرای زندگیتونه', 'bot');
-  }
-  
-  else if (userMessage.includes('خیلی خری')) {
-		
-    displayMessage('من قادر به خر بودن نخواهم بود لطفا با ادب باشید', 'bot');
-  }
-	else if (userMessage.includes('نه')) {
-		
-    displayMessage('باشه ', 'bot');
-  }
-  else if (userMessage.includes('چطوری')) {
-		
-    displayMessage('خوبم تو جطوری؟', 'bot');
-  }
-   else if (userMessage.includes('خوبم')) {
-		
-    displayMessage('اگر حالت بد شد به من بگو بگو ', 'bot');
-  }
-   else if (userMessage.includes('برای طراحی وب چه کد های رو باید بلد باشم')) {
-	
-    displayMessage('html css  javascript خیلی تو طراحی وب بهت کمک میکنن', 'bot');
-  }
-  
-   else if (userMessage.includes('کد های یک دیو رو بده')) {
-		
-    displayMessage('<div class="bot5"></div>    بله حتما برای استفاده از این کد باید کمی سی اس اس هم بلد باشید ', 'bot');
-	
-	
-  }
-	else if (userMessage.includes('افرین')) {
-		
-    displayMessage('خواهش میکنم من اماده ام تا هر وقت شما خواستید به شما کمک کنم ', 'bot');
-  }
-	else if (userMessage.includes('سلام')) {
-		
-    displayMessage('سلام چه خوبی من ربات بامزه هستم اگر سوالی داشتی در خدمتم ', 'bot');
-  }
-	
-	else if (userMessage.includes('سلام')) {
-		
-    displayMessage('سلام خوبی من ربات بامزه هستم اگر سوالی داشتی در خدمتم ', 'bot');
-  }
-	
-	else if (userMessage.includes('به من کد هایی رو بده که اگر کاربر کلیک کرد دسترسی دوربینش رو بگیرد')) {
-		
-    displayMessage('<input type="file" capture="user">  اگر میخواهید دسترسی سلفی گوشی را بگیرید همین کد را  envirnment اما اگر میخواهید دوربین پشت گوشی را بگیرید در کپچر بزنید      ', 'bot');
-  }
-	
-  
-    else if (userMessage.includes('اسم چند تا بازیکن فوتبال بهم بده')) {
-    const dan = getdan();
-    displayMessage(dan, 'bot');
-	}
-	
-	else {
-    displayMessage('متوجه نشدم. لطفا سوال یا درخواست خود را مجدداً بیان کنید.', 'bot');
-  }
-  
-  userInput.value = '';
-}
-
-function displayMessage(message, sender) {
-  const messageElem = document.createElement('div');
-  messageElem.classList.add('message');
-  messageElem.classList.add(sender);
-  messageElem.innerText = message;
-  chatLog.appendChild(messageElem);
-  chatContainer.scrollTop = chatContainer.scrollHeight;
-}
-
-function getJoke() {
-  const jokes = ['یه روز یه خره قرص اگز میخوره میگه عر عر منم منم خر خر', 'یه ادم میخوره به جدول میشینه حل   میکنه', 'خری؟', 'گاوی مزدک پلو؟'];
-  const randomIndex = Math.floor(Math.random() * jokes.length);
-  return jokes[randomIndex];
-}
-
-
-function getdan() {
-  const dan = ['وینیسیوس جونیور','علی علیپور','محمد صلاح','رونالدو', 'مسی', 'کوین دیبروینه', 'هالند','طارمی','اشرف حکیمی'];
-  const randomIndex = Math.floor(Math.random() * dan.length);
-  return dan[randomIndex];
-}
-
-</script>
