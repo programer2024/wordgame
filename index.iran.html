@@ -1,141 +1,276 @@
 <!DOCTYPE html>
-<title>  ایران قوی</title>
-<html lang="en">
+<html lang="fa">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-box-sizing: border-box;
-}
-body {
-font-family: Arial, Helvetica, sans-serif;
-margin: 0;
-}
-.header {
-padding: 80px;
-text-align: center;
-background: #1abc9c;
-color: white;
-}
-.header h1 {
-font-size: 40px;
-}
-.navbar {
-overflow: hidden;
-background-color: #333;
-position: sticky;
-position: -webkit-sticky;
-top: 0;
-}
-.navbar a {
-float: left;
-display: block;
-color: white;
-text-align: center;
-padding: 14px 20px;
-text-decoration: none;
-}
-.navbar a.right {
-float: right;
-}
-.navbar a:hover {
-background-color: #ddd;
-color: black;
-}
-.navbar a.active {
-background-color: #666;
-color: white;
-}
-.row {
-display: -ms-flexbox; /* IE10 */
-display: flex;
--ms-flex-wrap: wrap; /* IE10 */
-flex-wrap: wrap;
-}
-.side {
--ms-flex: 30%; /* IE10 */
-flex: 30%;
-background-color: #f1f1f1;
-padding: 20px;
-}
-.main {
--ms-flex: 70%; /* IE10 */
-flex: 70%;
-background-color: white;
-padding: 20px;
-}
-.fakeimg {
-background-color: #aaa;
-width: 100%;
-padding: 20px;
-}
-.footer {
-padding: 20px;
-text-align: center;
-background: #ddd;
-}
-@media screen and (max-width: 700px) {
-.row {
-flex-direction: column;
-}
-}
-@media screen and (max-width: 400px) {
-.navbar a {
-float: none;
-width: 100%;
-}
-}
-	
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فوتبال ترانسفر</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        body {
+            font-family: 'Vazir', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            background-color: #f4f4f4;
+        }
+        
+        header {
+            background-color: #333;
+            color: #ffffff;
+            padding: 15px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .search-bar {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .search-bar input[type="text"] {
+            padding: 5px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        .search-bar button {
+            padding: 5px 10px;
+            background-color: #ffffff;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 10px;
+        }
+        
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #FFD700;
+        }
+        
+        main {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .featured-news, .latest-news {
+            margin-bottom: 20px;
+        }
+        
+        .news-slider {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .news-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .news-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .news-item img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .news-item h3 {
+            margin: 10px 0;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        
+        #prevButton, #nextButton {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        #prevButton:hover, #nextButton:hover {
+            background-color: #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            .news-item {
+                width: calc(50% - 20px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        
+            .news-item {
+                width: calc(100% - 20px);
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <h1>رسانه فوتبال ترانسفر</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="جستجو...">
+            <button id="searchButton">جستجو</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">خانه</a></li>
+                <li><a href="#">اختصاصی</a></li>
+                <li><a href="#">مناظره سرخابی</a></li>
+                <li><a href="index.html">ثبت نام / ورود</a></li>
+                <li><a href="#">تماس با ما</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="featured-news">
+            <h2>خبرهای ویژه</h2>
+            <div class="news-slider">
+                <div class="news-item" data-title="عنوان خبر 1">
+                    <img src="img/365858.jpg" alt="خبر 1">
+                    <h3>گاریدو به اخراج نزدیک شد!</h3>
+                    <p>پرسپولیس در هفته یازدهم درحالی شکست خورد تا کار گاریدو سخت بشود.</p>
+                    <a href="#">ادامه خبر</a>
+                </div>
+                <div class="news-item" data-title="عنوان خبر 2">
+                    <img src="img/366051.jpg" alt="خبر 2">
+                    <h3>تنبیه موسیمانه علیه مرادمند</h3>
+                    <p>خلاصه‌ای از خبر 2</p>
+                    <a href="#">ادامه خبر</a>
+                </div>
+                <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
+            </div>
+            <button id="prevButton">قبلی</button>
+            <button id="nextButton">بعدی</button>
+        </section>
+        <section class="latest-news">
+            <h2>جدیدترین خبرها</h2>
+            <div class="news-item" data-title="عنوان خبر 3">
+                <h3>عنوان خبر 3</h3>
+                <p>خلاصه‌ای از خبر 3</p>
+                <a href="#">ادامه خبر</a>
+            </div>
+            <div class="news-item" data-title="عنوان خبر 4">
+                <h3>عنوان خبر 4</h3>
+                <p>خلاصه‌ای از خبر 4</p>
+                <a href="#">ادامه خبر</a>
+            </div>
+            <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
+        </section>
+        <section id="search-results" style="display:none;">
+            <h2>نتایج جستجو</h2>
+            <div id="results-container"></div>
+        </section>
+    </main>
+    <footer>
+        <p>کلیه حقوق محفوظ است &copy; 2024</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+            const searchButton = document.getElementById('searchButton');
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('search-results');
+            const resultsContainer = document.getElementById('results-container');
+            const featuredNewsSection = document.querySelector('.featured-news');
+            const latestNewsSection = document.querySelector('.latest-news');
+        
+            searchButton.addEventListener('click', function() {
+                const query = searchInput.value.toLowerCase();
+                const newsItems = document.querySelectorAll('.news-item');
+                resultsContainer.innerHTML = '';
+                let found = false;
+        
+                newsItems.forEach(item => {
+                    const title = item.querySelector('h3').innerText.toLowerCase();
+                    const summary = item.querySelector('p').innerText.toLowerCase();
+                    if (title.includes(query) || summary.includes(query)) {
+                        const clonedItem = item.cloneNode(true);
+                        resultsContainer.appendChild(clonedItem);
+                        found = true;
+                    }
+                });
+        
+                if (found) {
+                    searchResults.style.display = 'block';
+                    featuredNewsSection.style.display = 'none';
+                    latestNewsSection.style.display = 'none';
+                } else {
+                    searchResults.style.display = 'none';
+                    alert('هیچ نتیجه‌ای یافت نشد');
+                    featuredNewsSection.style.display = 'block';
+                    latestNewsSection.style.display = 'block';
+                }
+            });
+        
+            // Initialize Slick slider
+            $('.news-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                prevArrow: '#prevButton',
+                nextArrow: '#nextButton'
+            });
+        });
+   
 
-<div class="header">
-<h1> ایران قوی</h1>
-<p style="font-weight: bold"></p>
-</div>
 
-<div class="navbar">
-<a href="index.html">صفحه اصلی</a>
-<a href="#">خدمات</a>
-<a href="#">درباره</a>
-<a href="#" class="right">ارتباط با ما</a>
-</div>
-
-<div class="row">
-<div class="side">
-<h2>:ایران قبل از انقلاب</h2>
-<h2>عکس زیر را با دقت ببینید</h2>
-<div class="fakeimg" style="height:200px;"></div>
-	<img src="img2/341552.jpg"
-		 <h2>:چند خظ توضیح در باره قبل از انقلاب<h2>
-		 
-<h3>وضعیت زندگی مردم ایران در دورانی که شش میلیون بشکه در روز به فروش می‌رفت و خبری از جنگ و تحریم نبود، به تصویر کشیده شده است. همچنین در دوران پهلوی، آمریکا، انگلیس و اسرائیل از متحدان ایران به حساب می‌آمدند.</h3>
-<p>Lorem ipsum dolor sit ame.</p>
-<div class="fakeimg" style="height:60px;">Image</div><br>
-<div class="fakeimg" style="height:60px;">Image</div><br>
-<div class="fakeimg" style="height:60px;">Image</div>
-</div>
-<div class="main">
-<h2>TITLE HEADING</h2>
-<h5>Title description, Dec 7, 2017</h5>
-<div class="fakeimg" style="height:200px;">Image</div>
-	<img src="img2/download (1).png"
-<h2>:چند خظ توضیح درباره ایران<h2>
-<h2>ایران با نام رسمی جمهوری اسلامی ایران کشوری خودفرمان در آسیای غربی در فلات ایرانی است. در شمال‌غرب با ارمنستان، جمهوری نیمه‌رسمی قره‌باغ و جمهوری آذربایجان، در شمال با دریای خزر، در شمال‌شرق با ترکمنستان، در شرق با افغانستان و پاکستان، در جنوب با دریای عُمّان و خلیج فارس و در غرب با ترکیه و عراق مرز خاکی دارد. ۱٬۶۴۸٬۱۹۵ کیلومتر مربع مساحت دارد که دومین کشور بزرگ خاورمیانه و هجدهمین در جهان می‌باشد. با ۸۲٫۸ میلیون نفر جمعیت، هفدهمین کشور پرجمیعت جهان است. تنها کشوری است که با هر دو دریای خزر و اقیانوس هند خطِّ ساحلی دارد. جایگیری‌ ایران در اوراسیا و غرب آسیا و نزدیکی آن به تنگهٔ هُرمُز، به این کشور برجستگی ژئوپولیتکی بخشیده است. تهران پایتخت کشور و بزرگترین شهر ایران است و همچنین کانون پیشتاز اقتصادی آن.<h2>
-<br>
-<h2>TITLE HEADING</h2>
-<h5>Title description, Sep 2, 2017</h5>
-<div class="fakeimg" style="height:200px;">Image</div>
-<p>Some text..</p>
-<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-</div>
-</div>
-
-<div class="footer">
-<h2>Footer</h2>
-</div>
-
+        </script>
 </body>
 </html>
