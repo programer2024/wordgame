@@ -217,12 +217,60 @@
     <footer>
         <p>کلیه حقوق محفوظ است &copy; 2024</p>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script>
- document.addEventListener('DOMContentLoaded', 
-function() { const searchButton = document.getElementById('searchButton'); const searchInput = document.getElementById('searchInput'); const searchResults = document.getElementById('search-results'); const resultsContainer = document.getElementById('results-container'); const featuredNewsSection = document.querySelector('.featured-news'); const latestNewsSection = document.querySelector('.latest-news'); searchButton.addEventListener('click', function() { const query = searchInput.value.toLowerCase(); const newsItems = document.querySelectorAll('.news-item'); resultsContainer.innerHTML = ''; let found = false; newsItems.forEach(item => { const title = item.querySelector('h3').innerText.toLowerCase(); const summary = item.querySelector('p').innerText.toLowerCase(); if (title.includes(query) || summary.includes(query)) { const clonedItem = item.cloneNode(true); resultsContainer.appendChild(clonedItem); found = true; } }); if (found) { searchResults.style.display = 'block'; featuredNewsSection.style.display = 'none'; latestNewsSection.style.display = 'none'; } else { searchResults.style.display = 'none'; alert('هیچ نتیجه‌ای یافت نشد'); featuredNewsSection.style.display = 'block'; latestNewsSection.style.display = 'block'; } }); // Initialize Slick slider $('.news-slider').slick({ dots: true, infinite: true, speed: 300, slidesToShow: 1, adaptiveHeight: true, autoplay: true, autoplaySpeed: 2000, prevArrow: '#prevButton', nextArrow: '#nextButton' }); }); 
-</script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchButton = document.getElementById('searchButton');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('search-results');
+    const resultsContainer = document.getElementById('results-container');
+    const featuredNewsSection = document.querySelector('.featured-news');
+    const latestNewsSection = document.querySelector('.latest-news');
+
+    searchButton.addEventListener('click', function() {
+        const query = searchInput.value.toLowerCase();
+        const newsItems = document.querySelectorAll('.news-item');
+        resultsContainer.innerHTML = '';
+        let found = false;
+
+        newsItems.forEach(item => {
+            const title = item.querySelector('h3').innerText.toLowerCase();
+            const summary = item.querySelector('p').innerText.toLowerCase();
+            if (title.includes(query) || summary.includes(query)) {
+                const clonedItem = item.cloneNode(true);
+                resultsContainer.appendChild(clonedItem);
+                found = true;
+            }
+        });
+
+        if (found) {
+            searchResults.style.display = 'block';
+            featuredNewsSection.style.display = 'none';
+            latestNewsSection.style.display = 'none';
+        } else {
+            searchResults.style.display = 'none';
+            alert('هیچ نتیجه‌ای یافت نشد');
+            featuredNewsSection.style.display = 'block';
+            latestNewsSection.style.display = 'block';
+        }
+    });
+
+    // Initialize Slick slider
+    $('.news-slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        prevArrow: '#prevButton',
+        nextArrow: '#nextButton'
+    });
+});
+</script>
+
 </body> 
 </html>
         
