@@ -156,6 +156,7 @@
     </style>
 </head>
 <body>
+    <div id="online-users">کاربران آنلاین: <span id="user-count">0</span></div>
     <header>
         <div class="logo">
             <h1>رسانه فوتبال ترانسفر</h1>
@@ -243,6 +244,7 @@
     <footer>
         <p>کلیه حقوق محفوظ است &copy; 2024</p>
     </footer>
+    <script src="path/to/your/javascript.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
@@ -253,6 +255,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultsContainer = document.getElementById('results-container');
     const featuredNewsSection = document.querySelector('.featured-news');
     const latestNewsSection = document.querySelector('.latest-news');
+    const userCountElement = document.getElementById('user-count');
+
+    // حذف کدهای مربوط به اسلایدر
 
     searchButton.addEventListener('click', function() {
         const query = searchInput.value.toLowerCase();
@@ -282,8 +287,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-   
+    // WebSocket برای شمارش کاربران آنلاین
+    const socket = new WebSocket('wss://your-websocket-server');
+    socket.addEventListener('message', function(event) {
+        const data = JSON.parse(event.data);
+        if (data.type === 'userCount') {
+            userCountElement.innerText = data.count;
+        }
+    });
 });
+
 
         
 </script>
+</body>
+</html>
