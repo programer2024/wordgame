@@ -246,53 +246,55 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchButton = document.getElementById('searchButton');
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('search-results');
-            const resultsContainer = document.getElementById('results-container');
-            const featuredNewsSection = document.querySelector('.featured-news');
-            const latestNewsSection = document.querySelector('.latest-news');
+document.addEventListener('DOMContentLoaded', function() {
+    const searchButton = document.getElementById('searchButton');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('search-results');
+    const resultsContainer = document.getElementById('results-container');
+    const featuredNewsSection = document.querySelector('.featured-news');
+    const latestNewsSection = document.querySelector('.latest-news');
 
-            searchButton.addEventListener('click', function() {
-                const query = searchInput.value.toLowerCase();
-                const newsItems = document.querySelectorAll('.news-item');
-                resultsContainer.innerHTML = '';
-                let found = false;
+    searchButton.addEventListener('click', function() {
+        const query = searchInput.value.toLowerCase();
+        const newsItems = document.querySelectorAll('.news-item');
+        resultsContainer.innerHTML = '';
+        let found = false;
 
-                newsItems.forEach(item => {
-                    const title = item.querySelector('h3').innerText.toLowerCase();
-                    const summary = item.querySelector('p').innerText.toLowerCase();
-                    if (title.includes(query) || summary.includes(query)) {
-                        const clonedItem = item.cloneNode(true);
-                        resultsContainer.appendChild(clonedItem);
-                        found = true;
-                    }
-                });
-
-                if (found) {
-                    searchResults.style.display = 'block';
-                    featuredNewsSection.style.display = 'none';
-                    latestNewsSection.style.display = 'none';
-                } else {
-                    searchResults.style.display = 'none';
-                    alert('هیچ نتیجه‌ای یافت نشد');
-                    featuredNewsSection.style.display = 'block';
-                    latestNewsSection.style.display = 'block';
-                }
-            });
-
-            // Initialize Slick slider
-            $('.news-slider').slick({
-                dots: true,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 1,
-                adaptiveHeight: true,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                prevArrow: '#prevButton',
-                nextArrow: '#nextButton'
-            });
+        newsItems.forEach(item => {
+            const title = item.querySelector('h3').innerText.toLowerCase();
+            const summary = item.querySelector('p').innerText.toLowerCase();
+            if (title.includes(query) || summary.includes(query)) {
+                const clonedItem = item.cloneNode(true);
+                resultsContainer.appendChild(clonedItem);
+                found = true;
+            }
         });
-   [_{{{CITATION{{{_1{](https://github.com/ousmanekedougou/emproschool/tree/d7bff878b5a392fa71585e1c6b87c983979b82ec/resources%2Fviews%2Fuser%2Flayouts%2Fhead.blade.php)[_{{{CITATION{{{_2{](https://github.com/martinha1909/Rateify/tree/3332f09caf0c73e22007a8ecda61c2b49b872220/frontend%2FCreateSongView.php)[_{{{CITATION{{{_3{](https://github.com/skantayari/tfgenerate/tree/3452e90a7c9a3945718a1dd1c67e92ce9778515b/web%2Fpublic%2Flight.php)[_{{{CITATION{{{_4{](https://github.com/felipednc/Projeto/tree/efde0b9020390495e8f5b98d50209880b88c2c2c/Index.php)[_{{{CITATION{{{_5{](https://github.com/alexavier93/pietro/tree/c895e2e2d4b2a49b5352babfcf9f803dfb156b47/resources%2Fviews%2Flayouts%2Fapp.blade.php)
+
+        if (found) {
+            searchResults.style.display = 'block';
+            featuredNewsSection.style.display = 'none';
+            latestNewsSection.style.display = 'none';
+        } else {
+            searchResults.style.display = 'none';
+            alert('هیچ نتیجه‌ای یافت نشد');
+            featuredNewsSection.style.display = 'block';
+            latestNewsSection.style.display = 'block';
+        }
+    });
+
+    // Initialize Slick slider
+    $('.news-slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        prevArrow: '#prevButton',
+        nextArrow: '#nextButton'
+    });
+});
+
+        
+</script>
