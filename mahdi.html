@@ -97,6 +97,7 @@
             text-align: center;
             transition: transform 0.3s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
         }
 
         .news-item:hover {
@@ -153,6 +154,51 @@
             border-bottom: 1px solid #ddd;
             border-radius: 4px;
             margin-bottom: 10px;
+            position: relative;
+        }
+
+        .comments-list .comment button.delete-comment {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: red;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            font-size: 12px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .like-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .like-button span {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .like-count {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 1.2rem;
+            color: #333;
         }
 
         footer {
@@ -223,10 +269,10 @@
             <h2>خبرهای ویژه</h2>
             <div class="news-slider">
                 <div class="news-item" data-title="عنوان خبر 1">
-                    <img src="img/366579.jpg" alt="خبر 1">
-                    <h3>شاهکار ستارگان ایرانی در امارات</h3>
-                    <p>صابون باشو به تن قهرمان آسیا هم خورد؛ پنجمین گل فصل مهدی قائدی، مثل همیشه زیبا </p>
-                    <a href="https://rubika.ir/footballtransferrr">ادامه خبر</a>
+                    <img src="img/Mosimane.jpg" alt="خبر 1">
+                    <h3>تعجب موسیمانه از تعویق بازی تیمش!!</h3>
+                    <p>تعجب موسیمانه از تعویق بازی استقلال/ باید بازی استقلال را برگزار می‌کردند/ فیفا می‌گوید تا شاخص آلودگی ۲۰۰ هم می‌توان مسابقه برگزار کرد</p>
+                    <a href="#">ادامه خبر</a>
                     <div class="comments-section">
                         <div class="comment-form">
                             <input type="text" placeholder="نام شما" id="name1">
@@ -237,12 +283,16 @@
                             <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
                         </ul>
                     </div>
+                    <div class="like-button" onclick="likePost(1)">
+                        <span>👍</span>
+                    </div>
+                    <div class="like-count" id="like-count1">0</div>
                 </div>
                 <div class="news-item" data-title="عنوان خبر 2">
-                    <img src="img/361552.jpg" alt="خبر 2">
-                    <h3>ترکیب استقلال از دید رسانه فوتبال ترانسفر</h3>
-                    <p>ترکیب احتمالی استقلال برابر مس کرمان</p>
-                    <a href="https://rubika.ir/footballtransferrr">ادامه خبر</a>
+                    <img src="img/Sahmie.jpg" alt="خبر 2">
+                    <h3>خبر خوب برای تیم های حاضر در اسیا!</h3>
+                    <p>سهمیه خارجی تیم‌های لیگ برتری افزایش پیدا کرد؛ استقلال می‌تواند بازهم خارجی بخرد! / اختصاصی خبرورزشی</p>
+                                        <a href="#">ادامه خبر</a>
                     <div class="comments-section">
                         <div class="comment-form">
                             <input type="text" placeholder="نام شما" id="name2">
@@ -253,16 +303,16 @@
                             <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
                         </ul>
                     </div>
+                    <div class="like-button" onclick="likePost(2)">
+                        <span>👍</span>
+                    </div>
+                    <div class="like-count" id="like-count2">0</div>
                 </div>
                <div class="news-item" data-title="عنوان خبر 3">
-                    <img src="img/IMG_20241212_125424_722.jpg" alt="خبر 3">
-                    <h3>برترین بازیکنان بازی دیشب</h3>
-                    <p>🔴 ۳ بازیکن برتر بازی دیروز، ۳ گلزن این مسابقه بودند
-
-🥇 سروش رفیعی 7,86
-🥈 قائم اسلامی‌خواه 7,70
-🥉 فرشاد فرجی 7,54</p>
-                    <a href="https://rubika.ir/footballtransferrr">ادامه خبر</a>
+                    <img src="img/Sorkhabi.jpg" alt="خبر 3">
+                    <h3>درد مشترک استقلال و پرسپولیس!</h3>
+                    <p>درد مشترک استقلال و پرسپولیس/در خاک سرخابی‌ها گل نمی‌رود</p>
+                    <a href="#">ادامه خبر</a>
                     <div class="comments-section">
                         <div class="comment-form">
                             <input type="text" placeholder="نام شما" id="name3">
@@ -270,11 +320,34 @@
                             <button onclick="postComment(3)">ارسال نظر</button>
                         </div>
                         <ul class="comments-list" id="comments-list3">
-                                            <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
+                            <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
                         </ul>
                     </div>
-               </div>
-                
+                    <div class="like-button" onclick="likePost(3)">
+                        <span>👍</span>
+                    </div>
+                    <div class="like-count" id="like-count3">0</div>
+                </div>
+                <div class="news-item" data-title="عنوان خبر 4">
+                    <img src="img/Taremi.jpg" alt="خبر 4">
+                    <h3>طارمی تعویض شد اینتر باخت!</h3>
+                    <p>طارمی تعویض شد، اینتر باخت؛ گلباران بایرن مونیخ و پاری سن ژرمن در شبی که رئال مادرید به زحمت افتاد!</p>
+                    <a href="#">ادامه خبر</a>
+                    <div class="comments-section">
+                        <div class="comment-form">
+                            <input type="text" placeholder="نام شما" id="name4">
+                            <textarea placeholder="نظر خود را بنویسید..." id="comment4"></textarea>
+                            <button onclick="postComment(4)">ارسال نظر</button>
+                        </div>
+                        <ul class="comments-list" id="comments-list4">
+                            <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
+                        </ul>
+                    </div>
+                    <div class="like-button" onclick="likePost(4)">
+                        <span>👍</span>
+                    </div>
+                    <div class="like-count" id="like-count4">0</div>
+                </div>
                 <div class="news-item" data-title="عنوان خبر 5">
                     <img src="img/Moting.jpg" alt="خبر 5">
                     <h3>ایا شاهد بزرگترین خرید تاریخ لیگ برتر خواهیم بود؟!</h3>
@@ -290,19 +363,20 @@
                             <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
                         </ul>
                     </div>
+                    <div class="like-button" onclick="likePost(5)">
+                        <span>👍</span>
+                    </div>
+                    <div class="like-count" id="like-count5">0</div>
                 </div>
             </div>
         </section>
         <section class="latest-news">
             <h2>جدیدترین خبرها</h2>
-            <div class="news-item" data-title="عنوان خبر 5">
-                <img src="img/IMG_20241212_125318_128.jpg" alt="خبر 5">
-                <h3>ساعت بازی پرسپولیس و سپاهان تغییر کرد</h3>
-                <p>🚨 رسمی : با اعلام سازمان لیگ مسابقه دو
- تیم سپاهان و پرسپولیس بجای ساعت ۱۸
- از ساعت ۱۵:۱۵ روز دوشنبه ۲۶ آذر ماه در
- ورزشگاه نقش جهان اصفهان برگزار می‌شود.</p>
-                <a href="https://rubika.ir/footballtransferrr">ادامه خبر</a>
+            <div class="news-item" data-title="عنوان خبر 6">
+                <img src="img/Defae.jpg" alt="خبر 6">
+                <h3>پرسپولیس بهترین خط دفاع لیگ.</h3>
+                <p>🔴پرسپولیس با 4 گل خورده بهترین خط دفاعی لیگ‌برتر را در اختیار دارد</p>
+                <a href="#">ادامه خبر</a>
                 <div class="comments-section">
                     <div class="comment-form">
                         <input type="text" placeholder="نام شما" id="name6">
@@ -313,9 +387,13 @@
                         <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
                     </ul>
                 </div>
+                <div class="like-button" onclick="likePost(6)">
+                    <span>👍</span>
+                </div>
+                <div class="like-count" id="like-count6">0</div>
             </div>
-            <div class="news-item" data-title="عنوان خبر 6">
-                <img src="img/Esteghlal.jpg" alt="خبر 6">
+            <div class="news-item" data-title="عنوان خبر 7">
+                <img src="img/Esteghlal.jpg" alt="خبر 7">
                 <h3>بازی استقلال به تعویق افتاد!!</h3>
                 <p>آخرین خبر| نه لغو وزیر، نه حرف فدراسیون؛ استقلال - مس ۲۴ ساعت عقب افتاد</p>
                 <a href="#">ادامه خبر</a>
@@ -329,9 +407,13 @@
                         <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
                     </ul>
                 </div>
+                <div class="like-button" onclick="likePost(7)">
+                    <span>👍</span>
+                </div>
+                <div class="like-count" id="like-count7">0</div>
             </div>
-            <div class="news-item" data-title="عنوان خبر 7">
-                <img src="img/Esteghlal.jpg" alt="خبر 7">
+            <div class="news-item" data-title="عنوان خبر 8">
+                <img src="img/Esteghlal.jpg" alt="خبر 8">
                 <h3>استقلال در استانه کهکشانی شدن!!</h3>
                 <p>🔵هولدینگ خلیج فارس بدنبال خرید استادیوم آزادی برای استقلال!!!!</p>
                 <a href="#">ادامه خبر</a>
@@ -345,6 +427,10 @@
                         <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
                     </ul>
                 </div>
+                <div class="like-button" onclick="likePost(8)">
+                    <span>👍</span>
+                </div>
+                <div class="like-count" id="like-count8">0</div>
             </div>
         </section>
         <section id="search-results" style="display:none;">
@@ -372,8 +458,8 @@
                 const newsItems = document.querySelectorAll('.news-item');
                 resultsContainer.innerHTML = '';
                 let found = false;
-
-                newsItems.forEach(item => {
+ 
+                              newsItems.forEach(item => {
                     const title = item.querySelector('h3').innerText.toLowerCase();
                     const summary = item.querySelector('p').innerText.toLowerCase();
                     if (title.includes(query) || summary.includes(query)) {
@@ -395,6 +481,11 @@
                 }
             });
 
+            // Load existing comments and likes from localStorage
+            for (let postId = 1; postId <= 8; postId++) {
+                loadComments(postId);
+                loadLikes(postId);
+            }
         });
 
         function postComment(postId) {
@@ -404,14 +495,53 @@
                 const commentsList = document.getElementById(`comments-list${postId}`);
                 const newComment = document.createElement('li');
                 newComment.classList.add('comment');
-                newComment.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+                newComment.innerHTML = `<strong>${name}</strong><p>${comment}</p><button class="delete-comment" onclick="deleteComment(${postId}, this)">X</button>`;
                 commentsList.appendChild(newComment);
+                saveComment(postId, name, comment);
                 document.getElementById(`name${postId}`).value = '';
                 document.getElementById(`comment${postId}`).value = '';
             } else {
                 alert('لطفاً نام و نظر خود را وارد کنید.');
             }
         }
+
+        function saveComment(postId, name, comment) {
+            let comments = JSON.parse(localStorage.getItem(`comments${postId}`)) || [];
+            comments.push({ name, comment });
+            localStorage.setItem(`comments${postId}`, JSON.stringify(comments));
+        }
+
+        function loadComments(postId) {
+            let comments = JSON.parse(localStorage.getItem(`comments${postId}`)) || [];
+            const commentsList = document.getElementById(`comments-list${postId}`);
+            comments.forEach(commentData => {
+                const newComment = document.createElement('li');
+                newComment.classList.add('comment');
+                newComment.innerHTML = `<strong>${commentData.name}</strong><p>${commentData.comment}</p><button class="delete-comment" onclick="deleteComment(${postId}, this)">X</button>`;
+                commentsList.appendChild(newComment);
+            });
+        }
+
+        function deleteComment(postId, button) {
+            const comment = button.parentElement;
+            comment.remove();
+            let comments = JSON.parse(localStorage.getItem(`comments${postId}`)) || [];
+            comments = comments.filter(c => c.comment !== comment.querySelector('p').innerText);
+            localStorage.setItem(`comments${postId}`, JSON.stringify(comments));
+        }
+
+        function likePost(postId) {
+            let likes = JSON.parse(localStorage.getItem(`likes${postId}`)) || 0;
+            likes++;
+            localStorage.setItem(`likes${postId}`, JSON.stringify(likes));
+            document.getElementById(`like-count${postId}`).innerText = likes;
+        }
+
+        function loadLikes(postId) {
+            let likes = JSON.parse(localStorage.getItem(`likes${postId}`)) || 0;
+            document.getElementById(`like-count${postId}`).innerText = likes;
+        }
     </script>
 </body>
 </html>
+                            
