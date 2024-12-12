@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <link rel="shortcut icon" type="image/jpg" href="
-   img/IMG_20241202_220530_213.jpg"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فوتبال ترانسفر</title>
@@ -115,6 +113,48 @@
             margin: 10px 0;
         }
 
+        .comments-section {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .comment-form input, .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .comment-form button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .comments-list {
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .comments-list .comment {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
         footer {
             background-color: #333;
             color: #ffffff;
@@ -122,19 +162,21 @@
             padding: 10px 0;
         }
 
-        #prevButton, #nextButton {
-            padding: 10px 20px;
+        .slick-prev, .slick-next {
             background-color: #333;
             color: #ffffff;
             border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin: 10px;
-            transition: background-color 0.3s;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            z-index: 10;
         }
 
-        #prevButton:hover, #nextButton:hover {
+        .slick-prev:hover, .slick-next:hover {
             background-color: #FFD700;
+            color: #333;
         }
 
         @media (max-width: 768px) {
@@ -158,7 +200,6 @@
     </style>
 </head>
 <body>
-    <div id="online-users">کاربران آنلاین: <span id="user-count"></span></div>
     <header>
         <div class="logo">
             <h1>رسانه فوتبال ترانسفر</h1>
@@ -182,55 +223,137 @@
             <h2>خبرهای ویژه</h2>
             <div class="news-slider">
                 <div class="news-item" data-title="عنوان خبر 1">
-                    <img src="img/-2147483648_-255095.jpg" alt="خبر 1">
-                    <h3>برد دراماتیک سرخپوشان در ورزشگاه سن سیروس</h3>
-                            <p>🔴کری خونی قبل بازی🤔؟ کامبک در سن سیروس کامل شد
-پرسپولیس 2-1 ملوان
-‌</p>
-                    <a href="https://rubika.ir/footballtransferrr">ادامه خبر</a>
+                    <img src="img/Mosimane.jpg" alt="خبر 1">
+                    <h3>تعجب موسیمانه از تعویق بازی تیمش!!</h3>
+                    <p>تعجب موسیمانه از تعویق بازی استقلال/ باید بازی استقلال را برگزار می‌کردند/ فیفا می‌گوید تا شاخص آلودگی ۲۰۰ هم می‌توان مسابقه برگزار کرد</p>
+                    <a href="#">ادامه خبر</a>
+                    <div class="comments-section">
+                        <div class="comment-form">
+                            <input type="text" placeholder="نام شما" id="name1">
+                            <textarea placeholder="نظر خود را بنویسید..." id="comment1"></textarea>
+                            <button onclick="postComment(1)">ارسال نظر</button>
+                        </div>
+                        <ul class="comments-list" id="comments-list1">
+                            <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
+                        </ul>
+                    </div>
                 </div>
                 <div class="news-item" data-title="عنوان خبر 2">
-                    <img src="img/jadval.jpg" alt="خبر 2">
-                    <h3>جدول لیگ در پایان رقابت امروز</h3>
-                    <p>🔴جدول لیگ برتر فوتبال ایران بعد از پایان بازی ملوان و پرسپولیس</p>
-                    <a href="https://rubika.ir/footballtransferrr">ادامه خبر</a>
+                    <img src="img/Sahmie.jpg" alt="خبر 2">
+                    <h3>خبر خوب برای تیم های حاضر در اسیا!</h3>
+                    <p>سهمیه خارجی تیم‌های لیگ برتری افزایش پیدا کرد؛ استقلال می‌تواند بازهم خارجی بخرد! / اختصاصی خبرورزشی</p>
+                    <a href="#">ادامه خبر</a>
+                    <div class="comments-section">
+                        <div class="comment-form">
+                            <input type="text" placeholder="نام شما" id="name2">
+                            <textarea placeholder="نظر خود را بنویسید..." id="comment2"></textarea>
+                            <button onclick="postComment(2)">ارسال نظر</button>
+                        </div>
+                        <ul class="comments-list" id="comments-list2">
+                            <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
+                        </ul>
+                    </div>
+                </div>
+               <div class="news-item" data-title="عنوان خبر 3">
+                    <img src="img/Sorkhabi.jpg" alt="خبر 3">
+                    <h3>درد مشترک استقلال و پرسپولیس!</h3>
+                    <p>درد مشترک استقلال و پرسپولیس/در خاک سرخابی‌ها گل نمی‌رود</p>
+                    <a href="#">ادامه خبر</a>
+                    <div class="comments-section">
+                        <div class="comment-form">
+                            <input type="text" placeholder="نام شما" id="name3">
+                            <textarea placeholder="نظر خود را بنویسید..." id="comment3"></textarea>
+                            <button onclick="postComment(3)">ارسال نظر</button>
+                        </div>
+                        <ul class="comments-list" id="comments-list3">
+                                            <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
+                        </ul>
+                    </div>
                 </div>
                 <div class="news-item" data-title="عنوان خبر 4">
-                    <img src="img/-2147483648_-255113.jpg" alt="خبر 4">
-                    <h3>نمرات بازیکنان پرسپولیس در بازی امشب</h3>
-                    <p>🔴 #اختصاصی فوتبال ترانسفر| نمرات بازیکن پرسپولیس مقابل ملوان</p>
-                    <a href="https://rubika.ir/footballtransferrr">ادامه خبر</a>
+                    <img src="img/Taremi.jpg" alt="خبر 4">
+                    <h3>طارمی تعویض شد اینتر باخت!</h3>
+                    <p>طارمی تعویض شد، اینتر باخت؛ گلباران بایرن مونیخ و پاری سن ژرمن در شبی که رئال مادرید به زحمت افتاد!</p>
+                    <a href="#">ادامه خبر</a>
+                    <div class="comments-section">
+                        <div class="comment-form">
+                            <input type="text" placeholder="نام شما" id="name4">
+                            <textarea placeholder="نظر خود را بنویسید..." id="comment4"></textarea>
+                            <button onclick="postComment(4)">ارسال نظر</button>
+                        </div>
+                        <ul class="comments-list" id="comments-list4">
+                            <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
+                        </ul>
+                    </div>
                 </div>
                 <div class="news-item" data-title="عنوان خبر 5">
                     <img src="img/Moting.jpg" alt="خبر 5">
                     <h3>ایا شاهد بزرگترین خرید تاریخ لیگ برتر خواهیم بود؟!</h3>
                     <p>استقلال بدنبال چوپوموتینگ ...طبق گفته منابع معتبر باشگاه استقلال در استانه توافق با این بازیکن است</p>
-                    <a href="https://rubika.ir/footballtransferrr/BBIHAFDCCGCDIJED">ادامه خبر</a>
+                    <a href="#">ادامه خبر</a>
+                    <div class="comments-section">
+                        <div class="comment-form">
+                            <input type="text" placeholder="نام شما" id="name5">
+                            <textarea placeholder="نظر خود را بنویسید..." id="comment5"></textarea>
+                            <button onclick="postComment(5)">ارسال نظر</button>
+                        </div>
+                        <ul class="comments-list" id="comments-list5">
+                            <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
+                        </ul>
+                    </div>
                 </div>
-                <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
             </div>
         </section>
         <section class="latest-news">
             <h2>جدیدترین خبرها</h2>
             <div class="news-item" data-title="عنوان خبر 5">
                 <img src="img/Defae.jpg" alt="خبر 5">
-                <h3> پرسپولیس بهترین خط دفاع لیگ.</h3>
+                <h3>پرسپولیس بهترین خط دفاع لیگ.</h3>
                 <p>🔴پرسپولیس با 4 گل خورده بهترین خط دفاعی لیگ‌برتر را در اختیار دارد</p>
-                <a href="https://rubika.ir/footballtransferrr">ادامه خبر</a>
+                <a href="#">ادامه خبر</a>
+                <div class="comments-section">
+                    <div class="comment-form">
+                        <input type="text" placeholder="نام شما" id="name6">
+                        <textarea placeholder="نظر خود را بنویسید..." id="comment6"></textarea>
+                        <button onclick="postComment(6)">ارسال نظر</button>
+                    </div>
+                    <ul class="comments-list" id="comments-list6">
+                        <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
+                    </ul>
+                </div>
             </div>
             <div class="news-item" data-title="عنوان خبر 6">
                 <img src="img/Esteghlal.jpg" alt="خبر 6">
                 <h3>بازی استقلال به تعویق افتاد!!</h3>
                 <p>آخرین خبر| نه لغو وزیر، نه حرف فدراسیون؛ استقلال - مس ۲۴ ساعت عقب افتاد</p>
-                <a href="https://rubika.ir/footballtransferrr">ادامه خبر</a>
+                <a href="#">ادامه خبر</a>
+                <div class="comments-section">
+                    <div class="comment-form">
+                        <input type="text" placeholder="نام شما" id="name7">
+                        <textarea placeholder="نظر خود را بنویسید..." id="comment7"></textarea>
+                        <button onclick="postComment(7)">ارسال نظر</button>
+                    </div>
+                    <ul class="comments-list" id="comments-list7">
+                        <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
+                    </ul>
+                </div>
             </div>
             <div class="news-item" data-title="عنوان خبر 7">
                 <img src="img/Esteghlal.jpg" alt="خبر 7">
                 <h3>استقلال در استانه کهکشانی شدن!!</h3>
                 <p>🔵هولدینگ خلیج فارس بدنبال خرید استادیوم آزادی برای استقلال!!!!</p>
-                <a href="https://rubika.ir/footballtransferrr">ادامه خبر</a>
+                <a href="#">ادامه خبر</a>
+                <div class="comments-section">
+                    <div class="comment-form">
+                        <input type="text" placeholder="نام شما" id="name8">
+                        <textarea placeholder="نظر خود را بنویسید..." id="comment8"></textarea>
+                        <button onclick="postComment(8)">ارسال نظر</button>
+                    </div>
+                    <ul class="comments-list" id="comments-list8">
+                        <!-- نظرات کاربران در اینجا نمایش داده می‌شود -->
+                    </ul>
+                </div>
             </div>
-            <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
         </section>
         <section id="search-results" style="display:none;">
             <h2>نتایج جستجو</h2>
@@ -240,61 +363,63 @@
     <footer>
         <p>کلیه حقوق محفوظ است &copy; 2024</p>
     </footer>
-    <script src="path/to/your/javascript.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchButton = document.getElementById('searchButton');
-    const searchInput = document.getElementById('searchInput');
-    const searchResults = document.getElementById('search-results');
-    const resultsContainer = document.getElementById('results-container');
-    const featuredNewsSection = document.querySelector('.featured-news');
-    const latestNewsSection = document.querySelector('.latest-news');
-    const userCountElement = document.getElementById('user-count');
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchButton = document.getElementById('searchButton');
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('search-results');
+            const resultsContainer = document.getElementById('results-container');
+            const featuredNewsSection = document.querySelector('.featured-news');
+            const latestNewsSection = document.querySelector('.latest-news');
 
-    // حذف کدهای مربوط به اسلایدر
+            searchButton.addEventListener('click', function() {
+                const query = searchInput.value.toLowerCase();
+                const newsItems = document.querySelectorAll('.news-item');
+                resultsContainer.innerHTML = '';
+                let found = false;
 
-    searchButton.addEventListener('click', function() {
-        const query = searchInput.value.toLowerCase();
-        const newsItems = document.querySelectorAll('.news-item');
-        resultsContainer.innerHTML = '';
-        let found = false;
+                newsItems.forEach(item => {
+                    const title = item.querySelector('h3').innerText.toLowerCase();
+                    const summary = item.querySelector('p').innerText.toLowerCase();
+                    if (title.includes(query) || summary.includes(query)) {
+                        const clonedItem = item.cloneNode(true);
+                        resultsContainer.appendChild(clonedItem);
+                        found = true;
+                    }
+                });
 
-        newsItems.forEach(item => {
-            const title = item.querySelector('h3').innerText.toLowerCase();
-            const summary = item.querySelector('p').innerText.toLowerCase();
-            if (title.includes(query) || summary.includes(query)) {
-                const clonedItem = item.cloneNode(true);
-                resultsContainer.appendChild(clonedItem);
-                found = true;
-            }
+                if (found) {
+                    searchResults.style.display = 'block';
+                    featuredNewsSection.style.display = 'none';
+                    latestNewsSection.style.display = 'none';
+                } else {
+                    searchResults.style.display = 'none';
+                    alert('هیچ نتیجه‌ای یافت نشد');
+                    featuredNewsSection.style.display = 'block';
+                    latestNewsSection.style.display = 'block';
+                }
+            });
+
         });
 
-        if (found) {
-            searchResults.style.display = 'block';
-            featuredNewsSection.style.display = 'none';
-            latestNewsSection.style.display = 'none';
-        } else {
-            searchResults.style.display = 'none';
-            alert('هیچ نتیجه‌ای یافت نشد');
-            featuredNewsSection.style.display = 'block';
-            latestNewsSection.style.display = 'block';
+        function postComment(postId) {
+            const name = document.getElementById(`name${postId}`).value;
+            const comment = document.getElementById(`comment${postId}`).value;
+            if (name && comment) {
+                const commentsList = document.getElementById(`comments-list${postId}`);
+                const newComment = document.createElement('li');
+                newComment.classList.add('comment');
+                newComment.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+                commentsList.appendChild(newComment);
+                document.getElementById(`name${postId}`).value = '';
+                document.getElementById(`comment${postId}`).value = '';
+            } else {
+                alert('لطفاً نام و نظر خود را وارد کنید.');
+            }
         }
-    });
-
-    // WebSocket برای شمارش کاربران آنلاین
-    const socket = new WebSocket('wss://your-websocket-server');
-    socket.addEventListener('message', function(event) {
-        const data = JSON.parse(event.data);
-        if (data.type === 'userCount') {
-            userCountElement.innerText = data.count;
-        }
-    });
-});
-
-
-        
-</script>
+    </script>
 </body>
 </html>
