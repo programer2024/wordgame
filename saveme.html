@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فیلیمو شبیه‌سازی</title>
     <style>
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -41,39 +40,65 @@ nav ul li a {
     text-decoration: none;
 }
 
-.movie-list {
-    padding: 20px;
-    text-align: center;
+.slider {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 20px auto;
 }
 
-.movies {
+.slider-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    transition: transform 0.5s ease;
 }
 
-.movie {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    text-align: center;
-    width: 150px;
+.slide {
+    min-width: 100%;
+    position: relative;
 }
 
-.movie img {
+.slide img {
     width: 100%;
+    height: auto;
     border-radius: 8px;
 }
 
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #333;
+.caption {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
     color: white;
-    margin-top: 20px;
-}    
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+        
     </style>
 </head>
 <body>
@@ -89,6 +114,36 @@ footer {
     </header>
 
     <main>
+        <!-- اسلایدر -->
+        <section class="slider">
+            <div class="slider-container">
+                <div class="slide">
+                    <img src="https://via.placeholder.com/800x400" alt="فیلم جدید 1">
+                    <div class="caption">
+                        <h3>فیلم جدید 1</h3>
+                        <p>ژانر: اکشن</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://via.placeholder.com/800x400" alt="فیلم جدید 2">
+                    <div class="caption">
+                        <h3>فیلم جدید 2</h3>
+                        <p>ژانر: کمدی</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://via.placeholder.com/800x400" alt="فیلم جدید 3">
+                    <div class="caption">
+                        <h3>فیلم جدید 3</h3>
+                        <p>ژانر: درام</p>
+                    </div>
+                </div>
+            </div>
+            <button class="prev">‹</button>
+            <button class="next">›</button>
+        </section>
+
+        <!-- لیست فیلم‌ها -->
         <section class="movie-list">
             <h2>لیست فیلم‌ها</h2>
             <div class="movies">
@@ -103,11 +158,6 @@ footer {
                     <h3>فیلم دوم</h3>
                     <p>ژانر: کمدی</p>
                 </div>
-                <div class="movie">
-                    <img src="https://via.placeholder.com/150" alt="فیلم سوم">
-                    <h3>فیلم سوم</h3>
-                    <p>ژانر: درام</p>
-                </div>
             </div>
         </section>
     </main>
@@ -116,31 +166,32 @@ footer {
         <p>تمام حقوق محفوظ است &copy; 2025</p>
     </footer>
 
-    
-</body>
-</html>
-<script>
-// script.js
+    <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const movies = [
-        { title: "فیلم چهارم", genre: "وحشت", image: "https://via.placeholder.com/150" },
-        { title: "فیلم پنجم", genre: "ماجراجویی", image: "https://via.placeholder.com/150" },
-    ];
+    const sliderContainer = document.querySelector(".slider-container");
+    const slides = document.querySelectorAll(".slide");
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
 
-    const movieContainer = document.querySelector(".movies");
+    let currentIndex = 0;
 
-    // افزودن فیلم‌ها به صفحه
-    movies.forEach(movie => {
-        const movieElement = document.createElement("div");
-        movieElement.classList.add("movie");
-        movieElement.innerHTML = `
-            <img src="${movie.image}" alt="${movie.title}">
-            <h3>${movie.title}</h3>
-            <p>ژانر: ${movie.genre}</p>
-        `;
-        movieContainer.appendChild(movieElement);
+    const updateSlider = () => {
+        sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    };
+
+    nextButton.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlider();
+    });
+
+    prevButton.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlider();
     });
 });
 
-    
-</script>
+
+        
+    </script>
+</body>
+</html>
