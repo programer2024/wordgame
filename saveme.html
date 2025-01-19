@@ -189,7 +189,27 @@ document.addEventListener("DOMContentLoaded", () => {
         updateSlider();
     });
 });
+// script.js
+document.addEventListener("DOMContentLoaded", () => {
+    const movies = [
+        { title: "فیلم چهارم", genre: "وحشت", image: "https://via.placeholder.com/150" },
+        { title: "فیلم پنجم", genre: "ماجراجویی", image: "https://via.placeholder.com/150" },
+    ];
 
+    const movieContainer = document.querySelector(".movies");
+
+    // افزودن فیلم‌ها به صفحه
+    movies.forEach(movie => {
+        const movieElement = document.createElement("div");
+        movieElement.classList.add("movie");
+        movieElement.innerHTML = 
+            <img src="${movie.image}" alt="${movie.title}">
+            <h3>${movie.title}</h3>
+            <p>ژانر: ${movie.genre}</p>
+        ;
+        movieContainer.appendChild(movieElement);
+    });
+});
 
         
     </script>
