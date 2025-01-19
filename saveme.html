@@ -5,100 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فیلیمو شبیه‌سازی</title>
     <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-header {
-    background-color: #ff5722;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-}
+        header {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+        }
 
-header h1 {
-    margin: 0;
-}
+        header h1 {
+            margin: 0;
+        }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    margin: 10px 0 0;
-}
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 10px 0 0;
+        }
 
-nav ul li {
-    margin: 0 10px;
-}
+        nav ul li {
+            margin: 0 10px;
+        }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
 
-.slider {
-    position: relative;
-    overflow: hidden;
-    max-width: 100%;
-    margin: 20px auto;
-}
+        .slider {
+            position: relative;
+            overflow: hidden;
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+        }
 
-.slider-container {
-    display: flex;
-    transition: transform 0.5s ease;
-}
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
 
-.slide {
-    min-width: 100%;
-    position: relative;
-}
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
 
-.slide img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
 
-.caption {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    color: white;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    border-radius: 8px;
-}
+        .caption {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 8px;
+        }
 
-button.prev, button.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 50%;
-}
+        button.prev, button.next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+        }
 
-button.prev {
-    left: 10px;
-}
+        button.prev {
+            left: 10px;
+        }
 
-button.next {
-    right: 10px;
-}
+        button.next {
+            right: 10px;
+        }
 
-button:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
+        button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
 
-        
+        .movie-list {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .movie-list h2 {
+            margin-bottom: 20px;
+        }
+
+        .movies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .movie {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            width: 45%;
+            max-width: 150px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .movie img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            text-align: center;
+            background-color: #f0f0f0;
+            width: 100%;
+        }
+
+        /* تنظیمات ریسپانسیو */
+        @media (max-width: 768px) {
+            .movie {
+                width: 90%;
+            }
+
+            .slider {
+                margin: 20px auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -147,7 +203,6 @@ button:hover {
         <section class="movie-list">
             <h2>لیست فیلم‌ها</h2>
             <div class="movies">
-                <!-- فیلم‌های نمونه -->
                 <div class="movie">
                     <img src="https://via.placeholder.com/150" alt="فیلم اول">
                     <h3>فیلم اول</h3>
@@ -167,29 +222,29 @@ button:hover {
     </footer>
 
     <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const sliderContainer = document.querySelector(".slider-container");
-    const slides = document.querySelectorAll(".slide");
-    const prevButton = document.querySelector(".prev");
-    const nextButton = document.querySelector(".next");
+        document.addEventListener("DOMContentLoaded", () => {
+            const sliderContainer = document.querySelector(".slider-container");
+            const slides = document.querySelectorAll(".slide");
+            const prevButton = document.querySelector(".prev");
+            const nextButton = document.querySelector(".next");
 
-    let currentIndex = 0;
+            let currentIndex = 0;
 
-    const updateSlider = () => {
-        sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-    };
+            const updateSlider = () => {
+                sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            };
 
-    nextButton.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlider();
-    });
+            nextButton.addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlider();
+            });
 
-    prevButton.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateSlider();
-    });
-});
-// script.js
+            prevButton.addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlider();
+            });
+        });
+        // script.js
 document.addEventListener("DOMContentLoaded", () => {
     const movies = [
         { title: "فیلم چهارم", genre: "وحشت", image: "https://via.placeholder.com/150" },
@@ -210,8 +265,6 @@ document.addEventListener("DOMContentLoaded", () => {
         movieContainer.appendChild(movieElement);
     });
 });
-
-        
     </script>
 </body>
 </html>
