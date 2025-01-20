@@ -66,70 +66,6 @@ body {
     left: 0;
     background-color: #333;
     min-width: 150px;
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
-
-/* Navigation Bar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #121212;
-    color: white;
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    flex-wrap: wrap; /* برای تغییر چیدمان در دستگاه‌های کوچک */
-}
-
-.navbar .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #f39c12;
-    flex: 1;
-}
-
-/* Main Navigation */
-.navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap; /* برای شکستن خطوط در دستگاه‌های کوچک */
-}
-
-.navbar ul li {
-    position: relative;
-}
-
-.navbar ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-.navbar ul li a:hover {
-    color: #f39c12;
-}
-
-/* Dropdown Menu */
-.navbar ul li .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #333;
-    min-width: 150px;
     border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -154,8 +90,6 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex: 1;
-    justify-content: flex-end;
 }
 
 .navbar .search input {
@@ -163,7 +97,6 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     outline: none;
-    max-width: 150px; /* محدودیت عرض */
 }
 
 .navbar .search button {
@@ -201,45 +134,6 @@ body {
     background-color: #f39c12;
     color: #121212;
 }
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .navbar {
-        flex-wrap: wrap;
-        padding: 10px;
-    }
-
-    .navbar .logo {
-        margin-bottom: 10px;
-        text-align: center;
-        flex: 100%; /* استفاده از کل عرض */
-    }
-
-    .navbar ul {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-        flex: 100%; /* استفاده از کل عرض */
-    }
-
-    .navbar .search {
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-        flex: 100%; /* استفاده از کل عرض */
-    }
-
-    .navbar .search input {
-        max-width: 90%;
-        width: 100%;
-    }
-
-    .navbar .auth {
-        justify-content: center;
-        flex: 100%; /* استفاده از کل عرض */
-    }
-}
-
         
     </style>
 </head>
