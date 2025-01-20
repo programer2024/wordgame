@@ -1,274 +1,175 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فوتبال ترانسفر</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <title>Professional Menu</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Vazir', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            direction: rtl;
-            background-color: #f4f4f4;
-        }
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        header {
-            background-color: #333;
-            color: #ffffff;
-            padding: 15px 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
 
-        .logo h1 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #121212;
+    color: white;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        .search-bar {
-            display: flex;
-            flex-wrap: wrap;
-        }
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f39c12;
+}
 
-        .search-bar input[type="text"] {
-            padding: 5px;
-            border: none;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
 
-        .search-bar button {
-            padding: 5px 10px;
-            background-color: #ffffff;
-            color: #333;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+.navbar ul li {
+    position: relative;
+}
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-        }
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
 
-        nav ul li {
-            margin: 0 10px;
-        }
+.navbar ul li a:hover {
+    color: #f39c12;
+}
 
-        nav ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+/* Dropdown Menu */
+.navbar ul li .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    min-width: 150px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        nav ul li a:hover {
-            color: #FFD700;
-        }
+.navbar ul li:hover .dropdown {
+    display: block;
+}
 
-        main {
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
+.navbar ul li .dropdown a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
 
-        .featured-news, .latest-news {
-            margin-bottom: 20px;
-        }
+.navbar ul li .dropdown a:hover {
+    background-color: #444;
+}
 
-        .news-slider {
-            display: flex;
-            justify-content: space-between;
-        }
+/* Search Bar */
+.navbar .search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        .news-item {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 10px;
-            padding: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
+.navbar .search input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
 
-        .news-item:hover {
-            transform: scale(1.05);
-        }
+.navbar .search button {
+    background-color: #f39c12;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .news-item img {
-            max-width: 100%;
-            height: auto;
-        }
+.navbar .search button:hover {
+    background-color: #e67e22;
+}
 
-        .news-item h3 {
-            margin: 10px 0;
-        }
+/* Login/Register */
+.navbar .auth {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        footer {
-            background-color: #333;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+.navbar .auth a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid #f39c12;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        #prevButton, #nextButton {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #ffffff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin: 10px;
-            transition: background-color 0.3s;
-        }
+.navbar .auth a:hover {
+    background-color: #f39c12;
+    color: #121212;
+}
 
-        #prevButton:hover, #nextButton:hover {
-            background-color: #FFD700;
-        }
-
-        @media (max-width: 768px) {
-            .news-item {
-                width: calc(50% - 20px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .news-item {
-                width: calc(100% - 20px);
-            }
-        }
+        
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>رسانه فوتبال ترانسفر</h1>
-        </div>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="جستجو...">
-            <button id="searchButton">جستجو</button>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">خانه</a></li>
-                <li><a href="#">اختصاصی</a></li>
-                <li><a href="#">مناظره سرخابی</a></li>
-                <li><a href="index.html">ثبت نام / ورود</a></li>
-                <li><a href="#">تماس با ما</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="featured-news">
-            <h2>خبرهای ویژه</h2>
-            <div class="news-slider">
-                <div class="news-item" data-title="عنوان خبر 1">
-                    <img src="img/365858.jpg" alt="خبر 1">
-                    <h3>گاریدو به اخراج نزدیک شد!</h3>
-                    <p>پرسپولیس در هفته یازدهم درحالی شکست خورد تا کار گاریدو سخت بشود.</p>
-                    <a href="#">ادامه خبر</a>
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">MyFilimo</div>
+
+        <!-- Main Navigation Links -->
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">Categories</a>
+                <div class="dropdown">
+                    <a href="#">Action</a>
+                    <a href="#">Comedy</a>
+                    <a href="#">Drama</a>
+                    <a href="#">Documentary</a>
                 </div>
-                <div class="news-item" data-title="عنوان خبر 2">
-                    <img src="img/366051.jpg" alt="خبر 2">
-                    <h3>تنبیه موسیمانه علیه مرادمند</h3>
-                    <p>خلاصه‌ای از خبر 2</p>
-                    <a href="#">ادامه خبر</a>
-                </div>
-                <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
-            </div>
-            <button id="prevButton">قبلی</button>
-            <button id="nextButton">بعدی</button>
-        </section>
-        <section class="latest-news">
-            <h2>جدیدترین خبرها</h2>
-            <div class="news-item" data-title="عنوان خبر 3">
-                <h3>عنوان خبر 3</h3>
-                <p>خلاصه‌ای از خبر 3</p>
-                <a href="#">ادامه خبر</a>
-            </div>
-            <div class="news-item" data-title="عنوان خبر 4">
-                <h3>عنوان خبر 4</h3>
-                <p>خلاصه‌ای از خبر 4</p>
-                <a href="#">ادامه خبر</a>
-            </div>
-            <!-- خبرهای بیشتر می‌توانند به همین شکل اضافه شوند -->
-        </section>
-        <section id="search-results" style="display:none;">
-            <h2>نتایج جستجو</h2>
-            <div id="results-container"></div>
-        </section>
-    </main>
-    <footer>
-        <p>کلیه حقوق محفوظ است &copy; 2024</p>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchButton = document.getElementById('searchButton');
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('search-results');
-            const resultsContainer = document.getElementById('results-container');
-            const featuredNewsSection = document.querySelector('.featured-news');
-            const latestNewsSection = document.querySelector('.latest-news');
+            </li>
+            <li><a href="#">Top Movies</a></li>
+            <li><a href="#">Series</a></li>
+        </ul>
 
-            searchButton.addEventListener('click', function() {
-                const query = searchInput.value.toLowerCase();
-                const newsItems = document.querySelectorAll('.news-item');
-                resultsContainer.innerHTML = '';
-                let found = false;
+        <!-- Search Bar -->
+        <div class="search">
+            <input type="text" placeholder="Search movies...">
+            <button><i class='bx bx-search'></i></button>
+        </div>
 
-                newsItems.forEach(item => {
-                    const title = item.querySelector('h3').innerText.toLowerCase();
-                    const summary = item.querySelector('p').innerText.toLowerCase();
-                    if (title.includes(query) || summary.includes(query)) {
-                        const clonedItem = item.cloneNode(true);
-                        resultsContainer.appendChild(clonedItem);
-                        found = true;
-                    }
-                });
-
-                if (found) {
-                    searchResults.style.display = 'block';
-                    featuredNewsSection.style.display = 'none';
-                    latestNewsSection.style.display = 'none';
-                } else {
-                    searchResults.style.display = 'none';
-                    alert('هیچ نتیجه‌ای یافت نشد');
-                    featuredNewsSection.style.display = 'block';
-                    latestNewsSection.style.display = 'block';
-                }
-            });
-
-            // Initialize Slick slider
-            $('.news-slider').slick({
-                dots: true,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 1,
-                adaptiveHeight: true,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                prevArrow: '#prevButton',
-                nextArrow: '#nextButton'
-            });
-        });
-    </script>
+        <!-- Login/Register -->
+        <div class="auth">
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+        </div>
+    </nav>
 </body>
 </html>
