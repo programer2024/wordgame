@@ -231,3 +231,27 @@ header h1, footer p {
 #next-btn {
   right: 10px;
 }
+.search-results {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-top: 5px;
+  z-index: 1000;
+}
+
+.search-results a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.search-results a:hover {
+  background-color: #f0f0f0;
+}
+
+.search-results p {
+  padding: 10px;
+  color: #999;
+}
