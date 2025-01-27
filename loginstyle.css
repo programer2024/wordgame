@@ -403,3 +403,10 @@ transform: translateY(100%);
   font-family: "Rubik", sans-serif;
   transition: color 600ms;
 }
+
+.container.sign-in-mode .sign-up {
+    display: none;
+}
+.container.sign-in-mode .sign-in {
+    display: block;
+}
