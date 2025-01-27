@@ -1,40 +1,74 @@
- window.alert("سلام به سایت programmers(برنامه نویس ها) خوش امدید");
+// دریافت عناصر HTML
+const searchInput = document.getElementById("search-input");
+const searchBar = document.getElementById("search-bar");
+const searchToggle = document.getElementById("search-toggle");
 
+// افزودن قابلیت نمایش/مخفی کردن جستجو
+searchToggle.addEventListener("click", () => {
+  searchBar.style.display = searchBar.style.display === "block" ? "none" : "block";
+});
 
-function myFunction() {
-  let person = prompt("لطفا اسمتون رو وارد کنید", "");
-  if (person != null) {
-    document.getElementById("demo").innerHTML =
-    "" + person + "عزیز سلام شما ثبت نام شدید.";
+// افزودن قابلیت جستجو
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.trim();
+  const resultsContainer = document.querySelector(".search-results");
+
+  // حذف نتایج قبلی
+  if (resultsContainer) {
+    resultsContainer.remove();
   }
-}
-	
-	
-	
-var a=prompt("سنتان را وارد کنید");
-var year=1402-a;
-alert("شما متولد میباشید "+year);
-	
-	
-	
- function MyMessage2(){
- Swal.fire('با سلام ما در این سایت به سرگرمی شما میپردازیم ما  در این سایت یک بازی کلمات که مشابه بازی امیرزا هست قرار دادیم که قطعا شما ان را بازی کردیم یکی دیگر از قابلیت های سایت ما ماشین حساب سایت است که شما میتوانید در ان تمام محاسبات خود را انجام دهید در ضمن شما در سایت ما میتوانید با استفاده از فروشگاه سایت از خرید لوازم خانگی و لوازم گیمینگ با قیمت مناسب و شرایط اقساطی لذت ببرید شما در این سایت هم میتوانید از تمام خبر های علمی و ورزشی و مذهبی مطلع شوید باتشکر از شما ');
-}
-	
-	setTimeout(function(){alert("لطفا از سایت ما حمایت کنید "); },8000);
-	
-	
-	function MyMessage(){
- Swal.fire({
-  title: 'ایا از سایت ما راضی هستید؟',
-  showDenyButton: true,
-  confirmButtonText: 'آره خب',
-  denyButtonText: 'نه اصلا',
- }).then((result) => {
-  if (result.isConfirmed) {
-    document.getElementById("Result").innerHTML = "ممنون بابت انرژی مثبت شما";
-  } else if (result.isDenied) {
-   document.getElementById("Result").innerHTML = "سعی میکنیم سایت رو بهتر کنیم شماهم خوشتون بیاد";
+
+  if (query !== "") {
+    // پیدا کردن کارت‌ها و محتوای مرتبط
+    const cards = document.querySelectorAll(".card");
+    const results = [];
+    cards.forEach(card => {
+      const content = card.querySelector(".content").textContent;
+      if (content.includes(query)) {
+        results.push({
+          title: content,
+          link: card.querySelector(".watch-btn").href
+        });
+      }
+    });
+
+    // نمایش نتایج جستجو
+    const resultsDiv = document.createElement("div");
+    resultsDiv.classList.add("search-results");
+    resultsDiv.style.position = "absolute";
+    resultsDiv.style.background = "white";
+    resultsDiv.style.border = "1px solid #ccc";
+    resultsDiv.style.width = "100%";
+    resultsDiv.style.marginTop = "5px";
+    resultsDiv.style.zIndex = "1000";
+
+    if (results.length > 0) {
+      results.forEach(result => {
+        const resultLink = document.createElement("a");
+        resultLink.href = result.link;
+        resultLink.target = "_blank";
+        resultLink.textContent = result.title;
+        resultLink.style.display = "block";
+        resultLink.style.padding = "10px";
+        resultLink.style.textDecoration = "none";
+        resultLink.style.color = "black";
+
+        resultLink.addEventListener("mouseover", () => {
+          resultLink.style.background = "#f0f0f0";
+        });
+        resultLink.addEventListener("mouseout", () => {
+          resultLink.style.background = "white";
+        });
+
+        resultsDiv.appendChild(resultLink);
+      });
+    } else {
+      const noResult = document.createElement("p");
+      noResult.textContent = "نتیجه‌ای یافت نشد.";
+      noResult.style.padding = "10px";
+      resultsDiv.appendChild(noResult);
+    }
+
+    searchBar.appendChild(resultsDiv);
   }
- });
-}
+});
