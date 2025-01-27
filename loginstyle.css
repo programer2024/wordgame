@@ -404,9 +404,3 @@ transform: translateY(100%);
   transition: color 600ms;
 }
 
-.container.sign-in-mode .sign-up {
-    display: none;
-}
-.container.sign-in-mode .sign-in {
-    display: block;
-}
