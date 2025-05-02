@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- مهم برای موبایل -->	
   <title>SabzLearn Js BookList</title>
   <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: sans-serif;
   background: #fff;
@@ -15,43 +20,52 @@ body {
 .container {
   max-width: 600px;
   margin: auto;
+  padding: 10px;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
 .logo {
-  font-size: 32px;
+  font-size: 28px;
 }
 
 .orange {
   color: orange;
 }
 
-form input {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input,
+form button {
+  padding: 12px;
   font-size: 16px;
+  width: 100%;
 }
 
 form button {
-  width: 100%;
-  padding: 10px;
   background: orange;
   color: white;
-  font-size: 18px;
   border: none;
   cursor: pointer;
-  margin-top: 10px;
+  font-weight: bold;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 30px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 30px;
+  min-width: 350px;
 }
 
 th, td {
@@ -63,6 +77,22 @@ tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
+/* موبایل: فونت کوچکتر و ساده‌سازی */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  form input, form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  th, td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
 	  
   </style>
 </head>
