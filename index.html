@@ -1,92 +1,169 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="CSS/styles.css">
-  <title>Combined Slider</title>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- مهم برای موبایل -->	
+  <title>Ehsan Library</title>
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 28px;
+}
+
+.orange {
+  color: orange;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input,
+form button {
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+}
+
+form button {
+  background: orange;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 350px;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* موبایل: فونت کوچکتر و ساده‌سازی */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  form input, form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  th, td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+	  
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <h1><span class="logo">📘</span> <span>ehsan university</span> <span class="orange">BookList</span></h1>
+    
+    <form id="book-form">
+      <input type="text" id="title" placeholder="Title" required>
+      <input type="text" id="author" placeholder="Author" required>
+      <input type="text" id="year" placeholder="Year" required>
+      <button type="submit">Add Book</button>
+    </form>
 
-  <!-- هدر -->
-  <div class="header" id="header">
-    <ul class="header-left">
-      <li><a href="pages/login.html">ورود به حساب</a></li>
-      <li><a href="pages/pass.html">خرید اشتراک</a></li>
-    </ul>
-    <ul class="header-right">
-      <li><a href="#">فیلم</a></li>
-      <li><a href="#">سریال</a></li>
-      <li><a href="#">انیمیشن</a></li>
-      <li><a href="#" id="search-toggle">جستجو</a></li>
-    </ul>
-    <div class="search-bar" id="search-bar">
-      <input type="text" placeholder="جستجو..." id="search-input">
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody id="book-list"></tbody>
+    </table>
   </div>
 
-  <!-- اسلایدر تک عکسی -->
-  <div class="auto-slider">
-    <img src="images/img101 - Copy.jpg" alt="Slide 1" class="active">
-    <img src="images/img102 - Copy.jpg" alt="Slide 2">
-    <img src="images/img103 - Copy.jpg" alt="Slide 3">
-    <img src="images/img104 - Copy.jpg" alt="Slide 4">
-    <img src="images/img105 - Copy.jpg" alt="Slide 5">
-  </div>
+  <script>
+document.addEventListener("DOMContentLoaded", loadBooks);
+document.getElementById("book-form").addEventListener("submit", addBook);
 
-  <!-- اسلایدر چند کارتی -->
-  <div class="main-content">
-    <div class="slider-container">
-      <button id="prev-btn" class="nav-btn" disabled>&lt;</button>
-      <div class="slider">
-        <!-- کارت‌ها -->
-        <div class="card">
-          <img src="images/img101.jpg" alt="Thumbnail">
-          <div class="content">کارت 1</div>
-          <a href="https://example.com" class="watch-btn" target="_blank">تماشا</a>
-        </div>
-        <div class="card">
-          <img src="images/img102.jpg" alt="Thumbnail">
-          <div class="content">کارت 2</div>
-          <a href="https://example.com" class="watch-btn" target="_blank">تماشا</a>
-        </div>
-        <div class="card">
-          <img src="images/img103.jpg" alt="Thumbnail">
-          <div class="content">کارت 3</div>
-          <a href="https://example.com" class="watch-btn" target="_blank">تماشا</a>
-        </div>
-        <div class="card">
-          <img src="images/img104.jpg" alt="Thumbnail">
-          <div class="content">کارت 4</div>
-          <a href="https://example.com" class="watch-btn" target="_blank">تماشا</a>
-        </div>
-        <div class="card">
-          <img src="images/img105.jpg" alt="Thumbnail">
-          <div class="content">کارت 5</div>
-          <a href="https://example.com" class="watch-btn" target="_blank">تماشا</a>
-        </div>
-        <div class="card">
-          <img src="images/img101.jpg" alt="Thumbnail">
-          <div class="content">کارت 6</div>
-          <a href="https://example.com" class="watch-btn" target="_blank">تماشا</a>
-        </div>
-        <div class="card">
-          <img src="images/img102.jpg" alt="Thumbnail">
-          <div class="content">کارت 7</div>
-          <a href="https://example.com" class="watch-btn" target="_blank">تماشا</a>
-        </div>
-      </div>
-      <button id="next-btn" class="nav-btn">&gt;</button>
-    </div>
-  </div>
+function addBook(e) {
+  e.preventDefault();
 
-  <footer>
-    <p>&copy; 2025 تمامی حقوق محفوظ است.</p>
-  </footer>
+  const title = document.getElementById("title").value.trim();
+  const author = document.getElementById("author").value.trim();
+  const year = document.getElementById("year").value.trim();
+
+  if (title && author && year) {
+    const book = { title, author, year };
+
+    addBookToTable(book);
+    saveBookToLocalStorage(book);
+
+    // Reset form
+    document.getElementById("book-form").reset();
+  }
+}
+
+function addBookToTable(book) {
+  const list = document.getElementById("book-list");
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${book.title}</td>
+    <td>${book.author}</td>
+    <td>${book.year}</td>
+  `;
+  list.appendChild(row);
+}
+
+function saveBookToLocalStorage(book) {
+  const books = JSON.parse(localStorage.getItem("books")) || [];
+  books.push(book);
+  localStorage.setItem("books", JSON.stringify(books));
+}
+
+function loadBooks() {
+  const books = JSON.parse(localStorage.getItem("books")) || [];
+  books.forEach(book => addBookToTable(book));
+}
+	  
+	  
+  </script>
 </body>
-
-<script src="script.js"></script>
-
 </html>
